@@ -233,8 +233,8 @@ public class LoginActivity extends ActivityBase
 					return;
 				}
 			}
-		}
-		else if(position == 1) {
+
+		} else if (position == 1) {
 			for (int i = 0; i < mLibraryAdapter.getCount(); i++) {
 				Record rec = (Record) mLibraryAdapter.getItem(i);
 				if (rec.safeGet("name").contains(keyword)) {

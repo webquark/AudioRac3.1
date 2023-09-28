@@ -132,7 +132,7 @@
     <!-- ISBN -->
     <string name="msg_qr_not_ready">준비중 입니다.</string>
     <string name="msg_qr_book_found">바코드와 일치하는 오디오북을 찾았습니다. 이동하시겠습니까?</string>
-    <string name="msg_qr_book_not_found">검색 결과가 없습니다.</string>
+    <string name="msg_qr_book_not_found">검색에 실패하였습니다.</string>
     <string name="msg_qr_network_err">네트워크 상태를 확인해 주십시오.\n오프라인에서는 제공하지 않는 기능입니다.</string>
     <string name="msg_qr_invalid_barcode">바코드 스캔한 결과 값을 가져오지 못헀습니다.</string>
 
