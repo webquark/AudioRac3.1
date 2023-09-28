@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+
+android {
+    namespace 'com.conpo.audiorac.library'
+    compileSdkVersion 34
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 34
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.navigation:navigation-fragment:2.7.0'
+    implementation 'androidx.navigation:navigation-ui:2.7.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    /* JSON */
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.3'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.3'
+
+    /* OkHttp */
+    implementation 'com.squareup.okhttp:okhttp:2.7.5'
+    implementation 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
+
+    /* Retrofit */
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    /* Picasso */
+    ///implementation 'com.squareup.picasso:picasso:2.8'
+
+    /* Glide */
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+
+    /* Barcode */
+    implementation files('libs/core-2.3.0.jar')
+
+    /* SlideUp */
+    implementation project(':slideup')
+}

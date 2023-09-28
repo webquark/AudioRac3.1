@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YES24 오디오락</string>
+    <string name="msg_exit_app">YES24 오디오락 앱을 종료 하시겠습니까?</string>
+
+    <string name="copyright">(주) Contents Portal Corp. All rights reserved.</string>
+
+    <string name="msg_perm_guide">YES24 오디오락 앱은 다음 권한을 사용합니다.\n서비스의 원할한 이용을 위해 권한을 허용해 주시기 바랍니다.</string>
+    <string name="msg_perm_help4">YES24 오디오락 > 권한</string>
+</resources>

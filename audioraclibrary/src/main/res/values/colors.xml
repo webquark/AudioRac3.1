@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="item_file_name">#333</color>
+	<color name="item_file_remain">#666</color>
+	<color name="item_expired_file_name">#666</color>
+	<color name="item_expired_file_remain">#F00</color>
+
+	<color name="colorDark">#FF111111</color>
+	<color name="colorNormal">#FF333333</color>
+	<color name="colorLight">#FFAAAAAA</color>
+</resources>

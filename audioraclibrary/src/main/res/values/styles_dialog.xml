@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    
+    <style name="CustomDialog.Frame">
+    </style>
+    
+    <style name="CustomDialog.Header">
+        <item name="android:paddingLeft">@dimen/marginWide</item>
+        <item name="android:paddingRight">@dimen/marginWide</item>
+        <item name="android:paddingTop">@dimen/marginWide</item>
+        <item name="android:paddingBottom">@dimen/marginWide</item>
+    </style>
+    
+    <style name="DialogText">
+        <item name="android:textSize">@dimen/textMediumSmall</item>
+        <item name="android:textColor">#333</item>
+    </style>
+    
+    <style name="DialogText.Title" parent="DialogText">
+        <item name="android:textColor">#414042</item>
+        <item name="android:textSize">@dimen/textMediumLarge</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="DialogContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/marginWide</item>
+        <item name="android:layout_marginBottom">@dimen/marginWide</item>
+        <item name="android:layout_marginLeft">@dimen/marginWide</item>
+        <item name="android:layout_marginRight">@dimen/marginWide</item>
+    </style>
+    
+    <style name="DialogInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <style name="DialogInput.Label" parent="DialogText">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.35</item>
+        <item name="android:textSize">@dimen/textMediumSmall</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">none</item>
+    </style>
+    
+	<style name="DialogInput.AddrItem" parent="DialogText">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <style name="DialogInput.Desc" parent="DialogText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    
+    
+    <style name="DialogInput.Value" parent="DialogText">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">@dimen/heightMiddle</item>
+        <item name="android:layout_weight">0.65</item>
+        <item name="android:layout_marginLeft">@dimen/marginNormal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ems">10</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+    
+    <style name="DialogInput.Value.Card" parent="DialogInput.Value">
+        <item name="android:textSize">@dimen/textSmall</item>
+    </style>
+    
+    <style name="DialogInput.Value.Amount" parent="DialogInput.Value">
+        <item name="android:tag">currency</item>
+        <item name="android:gravity">right</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxEms">12</item>
+    </style>
+    
+	<style name="DialogInput.Value.Check" parent="DialogInput.Value">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:ems">7</item>
+    </style>
+    
+    <style name="DialogInput.Value.RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:paddingLeft">@dimen/marginWide</item>
+    </style>    
+    
+    <style name="DialogInput.Value.Spinner" parent="DialogInput.Value">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">0</item>
+    </style>
+    
+    <style name="DialogInput.Value.Switch">
+    	<item name="android:layout_height">@dimen/heightMiddle</item>
+    </style>
+  
+    
+    <style name="DialogButtons">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    
+    <style name="DialogButton">
+        <item name="android:layout_height">@dimen/heightMiddle</item>
+        <item name="android:layout_margin">@dimen/marginWide</item>
+        <item name="android:paddingLeft">@dimen/marginNarrow</item>
+        <item name="android:paddingRight">@dimen/marginNarrow</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/textMediumSmall</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">3</item>
+        <item name="android:background">#0065C1</item>
+    </style>
+
+</resources>

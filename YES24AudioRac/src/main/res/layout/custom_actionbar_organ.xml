@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center"
+    android:background="#142938"
+    android:orientation="horizontal" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/tv_site_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="xxxx도서관"
+            android:textColor="#fff"
+            android:textSize="@dimen/textMediumLarge" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/heightMiddle"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/marginNormal"
+            android:layout_gravity="bottom|right"
+            android:gravity="right"
+            android:scaleType="fitEnd"
+            android:src="@drawable/title_logo_yes24" />
+
+    </RelativeLayout>
+
+</LinearLayout>

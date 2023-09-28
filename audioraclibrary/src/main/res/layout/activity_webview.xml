@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
+      
+        <com.conpo.audiorac.widget.webview.ObservableWebView 
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"/>
+
+        <ProgressBar android:id="@+id/progress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <ImageButton
+            android:id="@+id/btn_goback"
+            android:layout_width="@dimen/heightHigh"
+            android:layout_height="@dimen/heightHigh"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="55dip"
+            android:layout_marginLeft="10dip"
+            android:alpha="0.7"
+            android:background="@drawable/xml_btn_back"
+            android:elevation="@dimen/marginNormal"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_gototop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="55dip"
+            android:layout_marginRight="10dip"
+            android:text="TOP"
+            android:visibility="gone" />
+        
+        <!-- 
+        <FrameLayout android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bottom_toolbar_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent" 
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginWide"
+                android:layout_marginBottom="@dimen/marginWide"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/btn_goback"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:src="@drawable/webview_back_selector" />
+                
+                <ImageView
+                    android:id="@+id/btn_goforward"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:src="@drawable/webview_forward_selector" />
+                
+                <ImageView
+                    android:id="@+id/btn_gohome"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:src="@drawable/btn_home" />
+                
+                <ImageView
+                    android:id="@+id/btn_refresh"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:src="@drawable/btn_refresh" />
+                
+            </LinearLayout>
+        </FrameLayout>
+        -->
+        
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFF4"
+    android:orientation="vertical"
+    tools:context="com.conpo.audiorac.activity.SettingsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/marginWide"
+                android:paddingLeft="@dimen/marginXtraWide"
+                android:paddingTop="@dimen/marginWide"
+                android:text="로그인정보"
+                android:textColor="#5C5C61"
+                android:textSize="@dimen/textMediumSmall" />
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginWide"
+                    android:layout_marginLeft="@dimen/marginXtraWide"
+                    android:layout_marginRight="@dimen/marginXtraWide"
+                    android:layout_marginTop="@dimen/marginWide"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_userid"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingBottom="@dimen/marginWide"
+                        android:paddingTop="@dimen/marginWide"
+                        android:text="conpo"
+                        android:textColor="#aaa"
+                        android:textSize="@dimen/textMedium" />
+
+                     <Button
+                        android:id="@+id/btn_logout"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="로그아웃"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/textMedium"
+                        android:background="@drawable/btn_blue_bg" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/marginWide"
+                android:paddingTop="@dimen/marginWide"
+                android:paddingLeft="@dimen/marginXtraWide"
+                android:paddingRight="@dimen/marginXtraWide"
+                android:text="기관정보"
+                android:textColor="#5C5C61"
+                android:textSize="@dimen/textMediumSmall" />
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginWide"
+                    android:layout_marginLeft="@dimen/marginXtraWide"
+                    android:layout_marginRight="@dimen/marginXtraWide"
+                    android:layout_marginTop="@dimen/marginWide"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_site_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:paddingBottom="@dimen/marginWide"
+                        android:paddingTop="@dimen/marginWide"
+                        android:text="컨텐츠포탈도서관"
+                        android:textColor="#aaa"
+                        android:textSize="@dimen/textMedium" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+            <!-- 취침설정 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/marginWide"
+                android:paddingTop="@dimen/marginWide"
+                android:paddingLeft="@dimen/marginXtraWide"
+                android:paddingRight="@dimen/marginXtraWide"
+                android:text="취침설정"
+                android:textColor="#5C5C61"
+                android:textSize="@dimen/textMediumSmall" />
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:layout_marginTop="@dimen/marginWide"
+                    android:layout_marginBottom="@dimen/marginWide"
+                    android:layout_marginLeft="@dimen/marginXtraWide"
+                    android:layout_marginRight="@dimen/marginXtraWide"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/chk_bedtime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="@dimen/marginWide"
+                        android:layout_gravity="left"
+                        android:text="취침설정을 사용합니다"
+                        android:textColor="#aaa"
+                        android:textSize="@dimen/textMedium"
+                        />
+
+                    <Button
+                        android:id="@+id/btn_save_bedtime"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:enabled="false"
+                        android:text="설정저장"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/textMedium"
+                        android:background="@drawable/xml_btn_blue" />
+                </LinearLayout>
+
+                <TimePicker
+                    android:id="@+id/timePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:timePickerMode="spinner" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/marginWide"
+                android:paddingTop="@dimen/marginWide"
+                android:paddingLeft="@dimen/marginXtraWide"
+                android:paddingRight="@dimen/marginXtraWide"
+                android:text="버전 정보"
+                android:textColor="#5C5C61"
+                android:textSize="@dimen/textMediumSmall" />
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginWide"
+                    android:layout_marginLeft="@dimen/marginXtraWide"
+                    android:layout_marginRight="@dimen/marginXtraWide"
+                    android:layout_marginTop="@dimen/marginWide"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginRight="@dimen/marginXtraWide"
+                        android:paddingBottom="@dimen/marginWide"
+                        android:paddingTop="@dimen/marginWide"
+                        android:text="현재버전  1.0.1"
+                        android:textColor="#aaa"
+                        android:textSize="@dimen/textMedium" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/HorizontalDivider" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

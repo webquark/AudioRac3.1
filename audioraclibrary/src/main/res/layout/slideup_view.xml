@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_slide_up_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/marginWide"
+    android:paddingRight="@dimen/marginWide"
+    android:paddingTop="@dimen/marginMoreWide"
+    android:layout_marginBottom="56dp"
+    android:layout_alignParentBottom="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:id="@+id/slideup_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/bg_circle_lightgray"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/iv_grabber"
+            android:layout_width="50dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="2dp"
+            app:srcCompat="@drawable/grabber" />
+
+        <TextView
+            android:id="@+id/tv_slideup_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/marginNormal"
+            android:gravity="left|center_horizontal"
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/textMedium"
+            android:textStyle="bold"
+            android:text="선택하세요" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card_view:menu="@menu/menu_folder" />
+
+        <LinearLayout
+            android:id="@+id/containerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</RelativeLayout>

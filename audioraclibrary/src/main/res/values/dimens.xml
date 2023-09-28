@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="fab_margin">1dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    
+    <!-- Text size -->
+    <dimen name="textVerySmall">8sp</dimen>
+    <dimen name="textTiny">11sp</dimen>
+    <dimen name="textSmall">12sp</dimen>
+    <dimen name="textMediumSmall">14sp</dimen>
+    <dimen name="textMedium">17sp</dimen>
+    <dimen name="textMediumLarge">20sp</dimen>
+    <dimen name="textLarge">24sp</dimen>
+    <dimen name="textXtraLarge">28sp</dimen>
+    <dimen name="text2XtraLarge">36sp</dimen>
+    
+    <!-- Size of margin, padding, etc  -->
+    <dimen name="marginLine">1dp</dimen>
+    <dimen name="marginMicro">2dp</dimen>
+    <dimen name="marginNarrow">3dp</dimen>
+    <dimen name="marginNormal">5dp</dimen>
+    <dimen name="marginNormalWide">7dp</dimen>
+    <dimen name="marginWide">10dp</dimen>
+    <dimen name="marginMoreWide">15dp</dimen>
+    <dimen name="marginXtraWide">20dp</dimen>
+    <dimen name="margin2XtraWide">30dp</dimen>
+    <dimen name="marginUltraWide">50dp</dimen>
+    
+    
+	<dimen name="heightLowest">10dp</dimen>
+    <dimen name="heightLower">15dp</dimen>
+    <dimen name="heightLow">20dp</dimen>
+    <dimen name="heightMiddleLow">28dp</dimen>
+    <dimen name="heightMiddle">35dp</dimen>
+    <dimen name="heightMiddleHigh">45dp</dimen>
+    <dimen name="heightHigh">55dp</dimen>
+    <dimen name="heightXtraHigh">60dp</dimen>
+    <dimen name="height2XtraHigh">75dp</dimen>
+    <dimen name="heightVeryHigh">130dp</dimen>
+  
+    <dimen name="MainTabHeight">65dp</dimen>
+    <dimen name="MediaArtworkWidth">180dp</dimen>
+    <dimen name="MediaArtworkHeight">220dp</dimen>
+</resources>

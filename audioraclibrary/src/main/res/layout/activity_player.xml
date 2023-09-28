@@ -1,0 +1,180 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/mainLayout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#fff"
+	android:orientation="vertical"
+	tools:context="com.conpo.audiorac.activity.PlayerActivity" >
+
+	<include
+		layout="@layout/custom_actionbar"/>
+
+	<!-- 앨범 이미지 및 타이틀 -->
+	<LinearLayout
+		android:id="@+id/artwork_container"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="7"
+		android:weightSum="10"
+		android:gravity="bottom|center_horizontal"
+		android:orientation="vertical">
+
+		<!-- 앨범 이미지 -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="8"
+			android:padding="@dimen/marginMoreWide"
+			android:gravity="bottom|center_horizontal"
+			android:orientation="horizontal">
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:paddingTop="10dp"
+				android:paddingBottom="10dp"
+				android:paddingLeft="10dp"
+				android:paddingRight="10dp"
+				android:background="@drawable/bg_album"
+				android:orientation="vertical">
+				<ImageView
+					android:id="@+id/iv_media_artwork"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_gravity="center"
+					android:scaleType="fitXY"
+					android:src="@drawable/conpo_3226"/>
+			</LinearLayout>
+		</LinearLayout>
+
+		<!-- 타이틀 -->
+		<TextView
+			android:id="@+id/txt_media_title"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_margin="@dimen/marginWide"
+			android:layout_weight="1.7"
+			android:ellipsize="end"
+			android:gravity="center"
+			android:singleLine="false"
+			android:text="오디오락 오디오북 타이틀 샘플 텍스트입니다.MP3"
+			android:textColor="@color/colorNormal"
+			android:textSize="@dimen/textMediumLarge" />
+	</LinearLayout>
+
+	<!-- 재생현황 -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="2.7"
+		android:orientation="vertical">
+		<!-- 배경이미지 -->
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="top"
+			android:scaleType="fitXY"
+			android:src="@drawable/player_bg1" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/marginNormal"
+			android:layout_marginRight="@dimen/marginNormal"
+			android:layout_marginBottom="@dimen/marginNormal"
+			android:orientation="vertical">
+
+			<SeekBar
+				android:id="@+id/sb_media_progress"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:maxHeight="9dp"
+				android:minHeight="9dp"
+				android:minWidth="200dp"
+				android:paddingLeft="@dimen/marginWide"
+				android:paddingRight="@dimen/marginWide"
+				android:paddingTop="10dp"
+				android:thumb="@drawable/seekbar_thumb" />
+
+			<LinearLayout
+				android:id="@+id/layout1"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="2dp"
+				android:orientation="horizontal">
+
+				<!-- 현재재생시간 -->
+				<TextView
+					android:id="@+id/txt_media_cduration"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/marginWide"
+					android:layout_weight="1"
+					android:gravity="left"
+					android:text="현재재생시간"
+					android:textColor="#666"
+					android:textSize="@dimen/textMediumSmall"
+					android:textStyle="bold" />
+
+				<!-- 총재생시간 -->
+				<TextView
+					android:id="@+id/txt_media_tduration"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginRight="@dimen/marginWide"
+					android:layout_weight="1"
+					android:gravity="right"
+					android:text="총재생시간"
+					android:textColor="#666"
+					android:textSize="@dimen/textMediumSmall"
+					android:textStyle="bold" />
+			</LinearLayout>
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<!-- 플레이어 버튼 -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="2"
+		android:padding="@dimen/marginWide"
+		android:gravity="center"
+		android:orientation="horizontal"
+		android:background="@drawable/player_bg2">
+		<ImageButton
+			android:id="@+id/btn_play_list"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:visibility="visible"
+			android:layout_margin="@dimen/marginNormal"
+			android:scaleType="centerInside"
+			android:background="@android:color/transparent"
+			android:src="@drawable/xml_btn_open" />
+		<ImageButton
+			android:id="@+id/btn_file_play"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/marginNormal"
+			android:scaleType="centerInside"
+			android:background="@android:color/transparent"
+			android:src="@drawable/xml_btn_play" />
+		<ImageButton
+			android:id="@+id/btn_file_stop"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/marginNormal"
+			android:scaleType="centerInside"
+			android:background="@android:color/transparent"
+			android:src="@drawable/xml_btn_stop" />
+		<ImageButton
+			android:id="@+id/btn_file_pause"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/marginNormal"
+			android:scaleType="centerInside"
+			android:background="@android:color/transparent"
+			android:src="@drawable/xml_btn_pause"  />
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+<resources>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light">
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CustomTitle" parent="@style/Theme.AppCompat.Light">
+        <item name="android:windowTitleSize">48dp</item>
+    </style>
+
+	<style name="HorizontalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#dcdcdc</item>
+    </style>
+
+    <style name="PermItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/marginXtraWide</item>
+        <item name="android:paddingRight">@dimen/marginXtraWide</item>
+        <item name="android:paddingTop">@dimen/marginWide</item>
+        <item name="android:paddingBottom">@dimen/marginWide</item>
+    </style>
+</resources>

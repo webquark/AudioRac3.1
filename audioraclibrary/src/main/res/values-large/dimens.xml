@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="MediaArtworkWidth">480dip</dimen>
+    <dimen name="MediaArtworkHeight">750dip</dimen>
+</resources>

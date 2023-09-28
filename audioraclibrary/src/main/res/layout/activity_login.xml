@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="#FFF"
+    tools:context="com.conpo.audiorac.activity.LoginActivity" >
+
+	<include
+		layout="@layout/custom_actionbar"/>
+
+    <!-- Login progress -->
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:padding="@dimen/marginMoreWide">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginXtraWide"
+                android:orientation="horizontal" >
+                
+            	<EditText
+	                android:id="@+id/keyword"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:hint="도서관명 검색"
+	                android:singleLine="true" />
+                
+            	<Button
+		            android:id="@+id/btn_search"
+		            android:layout_width="100dp"
+		            android:layout_height="@dimen/heightMiddleHigh"
+		            android:layout_marginLeft="@dimen/marginNormal"
+		            android:text="검색"
+		            android:textColor="#FFFFFF"
+		            android:textSize="@dimen/textMedium"
+		            android:background="@drawable/btn_blue_bg" />
+            	
+			</LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginXtraWide"
+                android:orientation="horizontal" >
+
+                <Spinner
+                    android:id="@+id/sp_organ_type"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:prompt="@string/prompt_organ_type"
+					android:dropDownVerticalOffset="41dp"
+					android:background="@drawable/bg_spinner"/>
+
+                <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/marginNormal"
+	                android:orientation="vertical" >
+	                <Spinner
+	                    android:id="@+id/sp_organ_school"
+	                    android:layout_width="match_parent"
+						android:layout_height="40dp"
+	                    android:prompt="@string/prompt_organ_school"
+						android:dropDownVerticalOffset="41dp"
+						android:background="@drawable/bg_spinner"/>
+	                <Spinner
+	                    android:id="@+id/sp_organ_library"
+	                    android:layout_width="match_parent"
+						android:layout_height="40dp"
+	                    android:visibility="gone"
+						android:prompt="@string/prompt_organ_library"
+						android:dropDownVerticalOffset="41dp"
+						android:background="@drawable/bg_spinner"/>
+	            </LinearLayout>
+            </LinearLayout>
+            
+            <EditText
+                android:id="@+id/userid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_email"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin2XtraWide"
+                android:hint="@string/prompt_password"
+                android:imeActionLabel="@string/action_sign_in_short"
+                android:singleLine="true" />
+
+			<LinearLayout
+				android:id="@+id/btn_login"
+				android:layout_width="wrap_content"
+				android:layout_height="50dp"
+				android:gravity="center_vertical"
+				android:layout_marginTop="@dimen/margin2XtraWide"
+				android:background="@drawable/xml_btn_login">
+				<ProgressBar
+					android:id="@+id/progress"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:visibility="gone"
+					android:layout_marginLeft="@dimen/marginWide"/>
+			</LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

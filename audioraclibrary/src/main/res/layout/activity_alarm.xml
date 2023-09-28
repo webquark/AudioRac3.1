@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/marginWide"
+    android:background="#EFEFF4"
+    android:orientation="vertical"
+    tools:context="com.conpo.audiorac.activity.AlarmActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin2XtraWide"
+        android:layout_marginBottom="@dimen/marginXtraWide"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="앱 종료까지 남은시간"
+            android:textColor="#1f931f"
+            android:textStyle="bold"
+            android:textSize="@dimen/textLarge" />
+
+        <TextView
+            android:id="@+id/tv_countdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="00:00"
+            android:textColor="#1f931f"
+            android:textStyle="bold"
+            android:textSize="50sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/marginWide"
+            android:padding="@dimen/marginNormal"
+            android:text="확인"
+            android:textColor="#FFF"
+            android:textSize="@dimen/textLarge"
+            android:background="@drawable/btn_blue_bg" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/marginNormal"
+            android:text="취소"
+            android:textColor="#FFF"
+            android:textSize="@dimen/textLarge"
+            android:background="#8f8e8e" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="취침을 5분 연장합니다."
+                android:textColor="#2869b9"
+                android:textStyle="bold"
+                android:textSize="@dimen/textMedium"/>
+
+            <Button
+                android:id="@+id/btn_delay"
+                android:layout_width="70sp"
+                android:layout_height="wrap_content"
+                android:text="연장"
+                android:textColor="#FFF"
+                android:textSize="@dimen/textMedium"
+                android:background="@drawable/btn_blue_bg" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginWide"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="left"
+                android:text="지금 바로 앱을 종료합니다."
+                android:textColor="#b92839"
+                android:textStyle="bold"
+                android:textSize="@dimen/textMedium" />
+
+            <Button
+                android:id="@+id/btn_exit_now"
+                android:layout_width="70sp"
+                android:layout_height="wrap_content"
+                android:text="앱종료"
+                android:textColor="#FFF"
+                android:textSize="@dimen/textMedium"
+                android:background="@drawable/btn_blue_bg" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

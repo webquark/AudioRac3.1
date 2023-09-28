@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="350dp"
+    android:minHeight="230dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#FFF">
+
+    <LinearLayout
+        style="@style/CustomDialog.Frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    
+        <LinearLayout android:id="@+id/content"
+            style="@style/DialogContent"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginWide"
+                android:scaleY="2.5"
+                android:max="100"
+                android:progress="30" />
+            <TextView
+                android:id="@+id/message"
+                style="@style/DialogText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/marginUltraWide"
+                android:text="메시지"
+                android:textSize="@dimen/textMedium" />
+
+            <Button
+                android:id="@+id/btn_stop_download"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/heightMiddle"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/marginWide"
+                android:textColor="#FFF"
+                android:text="다운로드 중단"
+                android:background="@drawable/btn_blue_bg"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
