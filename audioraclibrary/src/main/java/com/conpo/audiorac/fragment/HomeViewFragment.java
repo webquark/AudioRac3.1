@@ -16,6 +16,7 @@ import com.conpo.audiorac.application.LoginInfo;
 import com.conpo.audiorac.util.HttpUtil;
 import com.conpo.audiorac.util.Utils;
 import com.conpo.audiorac.widget.webview.InnerWebViewClient;
+import com.conpo.audiorac.widget.webview.WebCommand;
 
 import java.net.URLEncoder;
 
@@ -127,10 +128,6 @@ public class HomeViewFragment extends WebViewFragmentBase {
             try {
                 mWebView.goBackOrForward(Integer.MIN_VALUE);
                 mWebView.clearHistory();
-//                mUrl = LoginInfo.getSiteURL() + "/mobile/login_proc_app.php?" +
-//                        "user_id=" + LoginInfo.getUserId() +
-//                        "&user_name=" + URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR") +
-//                        "&dest=Main";
 
                 mUrl = LoginInfo.getSiteURL() + Common.URL_MOBILE_LOGIN;
                 mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
@@ -151,7 +148,13 @@ public class HomeViewFragment extends WebViewFragmentBase {
             try {
                 mWebView.goBackOrForward(Integer.MIN_VALUE);
                 mWebView.clearHistory();
-                mUrl = LoginInfo.getSiteURL() + "/mobile/";
+
+                mUrl = LoginInfo.getSiteURL() + Common.URL_MOBILE_LOGIN;
+                mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
+                mUrl = mUrl.replace("{usrName}", LoginInfo.getUserPwd());   //URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR"));
+                mUrl = mUrl.replace("{dest}", "Main");
+                mUrl = mUrl.replace("{appVer}", Utils.getAppVersion(mContext));
+
                 mUrl = HttpUtil.verifyUrl(mUrl);
                 mWebView.loadUrl(mUrl);
 
@@ -181,4 +184,18 @@ public class HomeViewFragment extends WebViewFragmentBase {
         mMainActivity.onFileDownload();
     }
 
+    @Override
+    public void actWebCommand(String message, WebCommand webCmd) {
+        super.actWebCommand(message, webCmd);
+
+        String action = webCmd.getAction();
+
+        if (action.equals("goMyAudio")) {
+            /*
+             * 마이 오디오로 이동
+             */
+            mMainActivity.setNavigationTab(2);
+
+        }
+    }
 }

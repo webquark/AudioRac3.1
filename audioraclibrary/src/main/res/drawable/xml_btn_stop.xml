@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_pressed="true" android:state_enabled="false" android:drawable="@drawable/btn_stop_over" />
-    <item android:state_pressed="false" android:state_enabled="true" android:drawable="@drawable/btn_stop" />
-    <item android:state_pressed="false" android:state_enabled="false" android:drawable="@drawable/btn_stop_over" />
-    <item android:state_pressed="true" android:state_enabled="true" android:drawable="@drawable/btn_stop" />
+    <item android:state_pressed="true" android:state_enabled="false" android:drawable="@drawable/ico_stop_on" />
+    <item android:state_pressed="false" android:state_enabled="true" android:drawable="@drawable/ico_stop" />
+    <item android:state_pressed="false" android:state_enabled="false" android:drawable="@drawable/ico_stop_on" />
+    <item android:state_pressed="true" android:state_enabled="true" android:drawable="@drawable/ico_stop" />
 </selector>

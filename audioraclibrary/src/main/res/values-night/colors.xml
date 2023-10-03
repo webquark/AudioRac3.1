@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="colorDark">#FFFFFF</color>
+	<color name="colorNormal">#FFFFFF</color>
+	<color name="colorLight">#FFAAAAAA</color>
+
+	<color name="colorHeaderBg">#1e1e2d</color>
+	<color name="colorValueBg">#151521</color>
+	<color name="colorDivider">#2e2e44</color>
+</resources>

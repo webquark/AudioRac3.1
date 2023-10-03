@@ -140,37 +140,33 @@
 		android:layout_weight="2"
 		android:padding="@dimen/marginWide"
 		android:gravity="center"
+		android:weightSum="10"
 		android:orientation="horizontal"
 		android:background="@drawable/player_bg2">
-		<ImageButton
-			android:id="@+id/btn_play_list"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:visibility="visible"
-			android:layout_margin="@dimen/marginNormal"
-			android:scaleType="centerInside"
-			android:background="@android:color/transparent"
-			android:src="@drawable/xml_btn_open" />
+
 		<ImageButton
 			android:id="@+id/btn_file_play"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_weight="2.5"
 			android:layout_margin="@dimen/marginNormal"
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
 			android:src="@drawable/xml_btn_play" />
 		<ImageButton
 			android:id="@+id/btn_file_stop"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_weight="2.5"
 			android:layout_margin="@dimen/marginNormal"
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
 			android:src="@drawable/xml_btn_stop" />
 		<ImageButton
 			android:id="@+id/btn_file_pause"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_weight="2.5"
 			android:layout_margin="@dimen/marginNormal"
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"

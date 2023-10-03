@@ -50,6 +50,8 @@ public class SpinnerAdapter extends AdapterBase {
 		return view;
 	}
 
+
+
 	@Override
 	public View getDropDownView(int position, View convertView, ViewGroup parent) {
 		View view = convertView;

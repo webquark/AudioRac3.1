@@ -113,7 +113,7 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 			}
 
 			holder.tvDuration.setVisibility(View.INVISIBLE);
-			Glide.with(mContext).load(R.drawable.ic_directory).into(holder.ivIcon);
+			Glide.with(mContext).load(R.drawable.ico_folder).into(holder.ivIcon);
 
 		} else {
 			/*
@@ -164,7 +164,7 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 
 			holder.tvDuration.setText(drmFile.duration);
 			holder.tvDuration.setVisibility(View.VISIBLE);
-			Glide.with(mContext).load(R.drawable.ic_mp3).into(holder.ivIcon);
+			Glide.with(mContext).load(R.drawable.ico_audio).into(holder.ivIcon);
 		}
 
 		holder.contentFrame.setOnClickListener(new View.OnClickListener() {

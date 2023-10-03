@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFEFF4"
-    android:orientation="vertical"
-    tools:context="com.conpo.audiorac.fragment.SettingsFragment">
+    android:background="@color/colorHeaderBg"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
                 android:paddingLeft="@dimen/marginXtraWide"
                 android:paddingTop="@dimen/marginWide"
                 android:text="@string/sub_title_login_info"
-                android:textColor="#5C5C61"
+                android:textColor="@color/colorNormal"
                 android:textSize="@dimen/textMediumSmall" />
 
             <LinearLayout style="@style/HorizontalDivider" />
@@ -33,7 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@color/colorValueBg"
                 android:orientation="vertical" >
 
                 <LinearLayout
@@ -84,7 +83,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@color/colorValueBg"
                 android:orientation="vertical" >
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -111,44 +110,43 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:orientation="vertical">
 
-            <LinearLayout style="@style/HorizontalDivider" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/marginWide"
-                android:paddingTop="@dimen/marginWide"
-                android:paddingLeft="@dimen/marginXtraWide"
-                android:paddingRight="@dimen/marginXtraWide"
-                android:text="@string/sub_title_theme_mode"
-                android:textColor="@color/colorNormal"
-                android:textSize="@dimen/textMediumSmall" />
-            <LinearLayout style="@style/HorizontalDivider" />
+                <LinearLayout style="@style/HorizontalDivider" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/marginWide"
+                    android:paddingTop="@dimen/marginWide"
+                    android:paddingLeft="@dimen/marginXtraWide"
+                    android:paddingRight="@dimen/marginXtraWide"
+                    android:text="@string/sub_title_theme_mode"
+                    android:textColor="@color/colorNormal"
+                    android:textSize="@dimen/textMediumSmall" />
+                <LinearLayout style="@style/HorizontalDivider" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:orientation="vertical" >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/marginWide"
-                    android:layout_marginLeft="@dimen/marginXtraWide"
-                    android:layout_marginRight="@dimen/marginXtraWide"
-                    android:layout_marginTop="@dimen/marginWide"
-                    android:orientation="horizontal" >
-                    <Spinner
-                        android:id="@+id/sp_theme_mode"
-                        android:layout_width="140dp"
-                        android:layout_height="40dp"
-                        android:prompt="@string/prompt_theme_mode"
-                        android:dropDownVerticalOffset="41dp"
-                        android:background="@drawable/bg_spinner"/>
+                    android:background="@color/colorValueBg"
+                    android:orientation="vertical" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/marginWide"
+                        android:layout_marginLeft="@dimen/marginXtraWide"
+                        android:layout_marginRight="@dimen/marginXtraWide"
+                        android:layout_marginTop="@dimen/marginWide"
+                        android:orientation="horizontal" >
+                        <Spinner
+                            android:id="@+id/sp_theme_mode"
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:prompt="@string/prompt_theme_mode"
+                            android:dropDownVerticalOffset="41dp"
+                            android:background="@drawable/bg_spinner"/>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
             </LinearLayout>
 
             <!-- 취침설정 -->
@@ -169,7 +167,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:background="#FFFFFF"
+                android:background="@color/colorValueBg"
                 android:orientation="vertical" >
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,7 +238,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@color/colorValueBg"
                 android:orientation="vertical" >
 
                 <LinearLayout

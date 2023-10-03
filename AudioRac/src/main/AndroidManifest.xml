@@ -70,17 +70,17 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/lightTheme" />
 
         <activity
             android:name=".activity.PlayerActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/lightTheme" />
 
         <activity
             android:name=".activity.AlarmActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/lightTheme" />
 
         <activity
             android:name=".activity.QrCaptureActivity"

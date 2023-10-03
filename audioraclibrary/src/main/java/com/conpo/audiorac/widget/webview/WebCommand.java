@@ -9,7 +9,7 @@ import android.util.Log;
 public class WebCommand {
 	private static final String LOG_TAG = "WebCommand";
 	
-	public static final String CMD_PREFIX = "APP_CMD>";
+	public static final String CMD_PREFIX = "app_cmd>";
 	protected Hashtable<String, String> mParams = new Hashtable<String, String>();
 
 	public static WebCommand cmdFromString(String str) {		
@@ -42,12 +42,16 @@ public class WebCommand {
 			// web command에서 value에 포함시켜 보내는 '=' 문자도 처리 가능하도록
 			if (param.length > 1) {
 				param[1] = params[i].substring(param[0].length() + 1);
+
 			} else {
-				append(param, "");
+				Log.e(LOG_TAG, "action ===>" + param[0]);
+				mParams.put("action", param[0]);
+				continue;
 			}
 
 			if (param.length < 2) {
 				Log.e(LOG_TAG, String.format("parse error: %d, %s", i, param));
+
 			} else {
 				Log.e(LOG_TAG, param[0] + " ===>" + param[1]);
 				mParams.put(param[0], param[1]);
@@ -56,28 +60,28 @@ public class WebCommand {
 		
 		return true;
 	}
-	
+
 	public boolean parseCommandForLink(String prefix, String str) {
 		if (!str.startsWith(prefix)) return false;
-		
+
 		str = str.substring(CMD_PREFIX.length());
 		String[] params = str.split("\\&");
-		
+
 		for (int i=0; i < params.length; ++i) {
 			String[] param = params[i].split("\\=");
-			
+
 			// web command에서 value에 포함시켜 보내는 '=' 문자도 처리 가능하도록
 			param[1] = params[i].substring(param[0].length() + 1);
-			
+
 			if (param.length < 2) {
 				Log.e(LOG_TAG, String.format("parse error: %d, %s", i, param));
-			}
-			else {
+
+			} else {
 				Log.e(LOG_TAG, param[0] + " ===>" + param[1]);
 				mParams.put(param[0], param[1]);
 			}
 		}
-		
+
 		return true;
 	}
 	

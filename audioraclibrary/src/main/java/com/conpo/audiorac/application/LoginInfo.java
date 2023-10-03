@@ -24,17 +24,19 @@ public class LoginInfo {
 	protected static final String PREFS_SITE_URL = "site_url";
 	protected static final String PREFS_SITE_NAME = "site_name";
 	protected static final String PREFS_APP_TYPE = "app_type";
+	protected static final String PREFS_UI_MODE = "ui_mode";
 
 	protected static final String PREFS_REG_ID = "reg_id";		// GCM registration id
 	
 	protected SharedPreferences mPreferences;
 	
 	private static String  mAppVersion = "0.1";		// app version
-	private static String  mUserId = "";				// 사용자 아이디
-	private static String  mUserPwd = "";				// 사용자 비밀번호
-	private static String  mSiteURL = "";				// 사이트 URL
+	private static String  mUserId = "";			// 사용자 아이디
+	private static String  mUserPwd = "";			// 사용자 비밀번호
+	private static String  mSiteURL = "";			// 사이트 URL
 	private static String  mSiteName = "";			// 사이트 이름
-	private static String  mAppType = "1";				// 앱 유형(0: 구버전 호환용 player only, 1:오디오락 정규 버전)
+	private static String  mAppType = "1";			// 앱 유형(0: 구버전 호환용 player only, 1:오디오락 정규 버전)
+	private static int  mUIMode = 1;				// UI Theme Mode [1:Light|2:Dark]
 	private static String  mGCMRegId = "";			// GCM registration id
 	private static boolean  mUseAlarm = false;
 	private static int mAlarmHour = 0;
@@ -49,6 +51,16 @@ public class LoginInfo {
 	 * 앱 실행 유형 - 오디오락 정규 버전
 	 */
 	public static final String APP_TYPE_AUDIORAC = "1";
+
+	/**
+	 * UI Theme Mode : Light
+	 */
+	public static final String UI_MODE_LIGHT = "Light";
+
+	/**
+	 * UI Theme Mode : Dark
+	 */
+	public static final String UI_MODE_DARK = "Dark";
 
 	private static MainActivity mMainActivity = null;
 
@@ -69,6 +81,7 @@ public class LoginInfo {
 		mSiteURL = prefs.getString(PREFS_SITE_URL, "");
 		mSiteName = prefs.getString(PREFS_SITE_NAME, "");
 		mAppType = prefs.getString(PREFS_APP_TYPE, "1");
+		mUIMode = prefs.getInt(PREFS_UI_MODE, 1);
 		mGCMRegId = prefs.getString(PREFS_REG_ID, "");
 	}
 	
@@ -83,6 +96,7 @@ public class LoginInfo {
 		editor.putString(PREFS_SITE_URL, mSiteURL);
 		editor.putString(PREFS_SITE_NAME, mSiteName);
 		editor.putString(PREFS_APP_TYPE, mAppType);
+		editor.putInt(PREFS_UI_MODE, mUIMode);
 		editor.putString(PREFS_REG_ID, mGCMRegId);
 		
 		editor.commit();
@@ -186,6 +200,18 @@ public class LoginInfo {
 
 	public static void setAppType(String type) {
 		mAppType = type;
+	}
+
+	/**
+	 * UI 테마 모드 [Light|Dark]
+	 * @return
+	 */
+	public static int getUIMode() {
+		return mUIMode;
+	}
+
+	public static void setUIMode(int mode) {
+		mUIMode = mode;
 	}
 
 	/**

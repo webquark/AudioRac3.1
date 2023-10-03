@@ -15,6 +15,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
 
 import com.conpo.audiorac.application.AudioRacApplication;
@@ -72,8 +73,9 @@ public class MainActivity extends ActivityBase
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        setUIMode();
 
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         TextView tvSiteName = (TextView)findViewById(R.id.tv_site_name);
@@ -107,6 +109,16 @@ public class MainActivity extends ActivityBase
 //                                    });
                 }
             });
+        }
+    }
+
+    public void setUIMode() {
+        LoginInfo.loadPreferences(this);
+
+        if (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
     }
 

@@ -2,9 +2,11 @@ package com.conpo.audiorac.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -53,6 +55,10 @@ public class FragmentBase extends Fragment {
     }
     protected void fetchData() {
 
+    }
+
+    protected int getColor(@ColorRes int colorId) {
+            return mContext.getColor(colorId);
     }
 
     public ProgressBar getProgressBar() {

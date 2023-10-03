@@ -17,7 +17,7 @@
             android:layout_height="20dp"
             android:layout_gravity="top"
             android:layout_marginRight="@dimen/marginWide"
-            android:src="@drawable/ic_folder" />
+            android:src="@drawable/ico_folder" />
         <TextView
             android:id="@+id/tv_path"
             android:layout_width="match_parent"

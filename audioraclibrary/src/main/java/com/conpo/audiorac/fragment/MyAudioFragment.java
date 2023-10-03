@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import com.conpo.audiorac.application.Common;
 import com.conpo.audiorac.application.LoginInfo;
 import com.conpo.audiorac.util.HttpUtil;
+import com.conpo.audiorac.util.Utils;
 import com.conpo.audiorac.widget.webview.InnerWebViewClient;
 
 import java.net.URLEncoder;
@@ -29,14 +31,14 @@ public class MyAudioFragment extends WebViewFragmentBase {
         setWebViewClient(new MyAudioWebViewClient());
 
         try {
-            String url = LoginInfo.getSiteURL() + "/mobile/login_proc_app.php?" +
-                    "user_id=" + LoginInfo.getUserId() +
-                    "&user_name=" + URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR") +
-                    "&dest=MyAudio";
+            mUrl = LoginInfo.getSiteURL() + Common.URL_MOBILE_LOGIN;
+            mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
+            mUrl = mUrl.replace("{usrName}", LoginInfo.getUserPwd()); //URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR"));
+            mUrl = mUrl.replace("{dest}", "MyAudio");
+            mUrl = mUrl.replace("{appVer}", Utils.getAppVersion(mContext));
 
-            url = HttpUtil.verifyUrl(url);
-
-            mWebView.loadUrl(url);
+            mUrl = HttpUtil.verifyUrl(mUrl);
+            mWebView.loadUrl(mUrl);
 
         } catch (Exception e) {
             e.printStackTrace();

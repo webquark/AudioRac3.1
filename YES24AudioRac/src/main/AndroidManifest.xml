@@ -23,7 +23,7 @@
             android:name="com.conpo.audiorac.activity.SplashActivity"
             android:exported="true"
             android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,17 +57,17 @@
         <activity
             android:name="com.conpo.audiorac.activity.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name="com.conpo.audiorac.activity.PermissionActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name="com.conpo.audiorac.activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name="com.conpo.audiorac.activity.PlayerActivity"

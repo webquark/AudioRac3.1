@@ -188,7 +188,6 @@ public class SplashActivity extends ActivityBase {
 			}
 
 			startActivity(intent);
-
 			finish();
 		}
 	};

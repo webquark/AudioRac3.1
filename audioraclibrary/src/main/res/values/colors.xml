@@ -8,4 +8,8 @@
 	<color name="colorDark">#FF111111</color>
 	<color name="colorNormal">#FF333333</color>
 	<color name="colorLight">#FFAAAAAA</color>
+
+	<color name="colorHeaderBg">#EFEFF4</color>
+	<color name="colorValueBg">#FFFFFF</color>
+	<color name="colorDivider">#dcdcdc</color>
 </resources>
