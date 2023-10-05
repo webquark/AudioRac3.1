@@ -4,7 +4,7 @@
 	android:id="@+id/mainLayout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="#fff"
+	android:background="@color/colorHeaderBg"
 	android:orientation="vertical"
 	tools:context="com.conpo.audiorac.activity.PlayerActivity" >
 
@@ -138,43 +138,53 @@
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
 		android:layout_weight="2"
-		android:padding="@dimen/marginWide"
-		android:gravity="center"
+		android:padding="@dimen/marginXtraWide"
 		android:orientation="horizontal"
 		android:background="@drawable/player_bg2">
-		<ImageButton
-			android:id="@+id/btn_play_list"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:visibility="visible"
-			android:layout_margin="@dimen/marginNormal"
-			android:scaleType="centerInside"
-			android:background="@android:color/transparent"
-			android:src="@drawable/xml_btn_open" />
-		<ImageButton
-			android:id="@+id/btn_file_play"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_margin="@dimen/marginNormal"
-			android:scaleType="centerInside"
-			android:background="@android:color/transparent"
-			android:src="@drawable/xml_btn_play" />
-		<ImageButton
-			android:id="@+id/btn_file_stop"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_margin="@dimen/marginNormal"
-			android:scaleType="centerInside"
-			android:background="@android:color/transparent"
-			android:src="@drawable/xml_btn_stop" />
-		<ImageButton
-			android:id="@+id/btn_file_pause"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_margin="@dimen/marginNormal"
-			android:scaleType="centerInside"
-			android:background="@android:color/transparent"
-			android:src="@drawable/xml_btn_pause"  />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:weightSum="3"
+			android:layout_marginLeft="@dimen/marginUltraWide"
+			android:layout_marginRight="@dimen/marginUltraWide"
+			android:orientation="horizontal">
+			<ImageButton
+				android:id="@+id/btn_play_list"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:layout_margin="@dimen/marginNormal"
+				android:scaleType="centerInside"
+				android:background="@android:color/transparent"
+				android:src="@drawable/xml_btn_open" />
+			<ImageButton
+				android:id="@+id/btn_file_play"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_margin="@dimen/marginWide"
+				android:scaleType="centerInside"
+				android:background="@android:color/transparent"
+				android:src="@drawable/xml_btn_play" />
+			<ImageButton
+				android:id="@+id/btn_file_stop"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_margin="@dimen/marginWide"
+				android:scaleType="centerInside"
+				android:background="@android:color/transparent"
+				android:src="@drawable/xml_btn_stop" />
+			<ImageButton
+				android:id="@+id/btn_file_pause"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:layout_margin="@dimen/marginWide"
+				android:scaleType="centerInside"
+				android:background="@android:color/transparent"
+				android:src="@drawable/xml_btn_pause"  />
+		</LinearLayout>
 	</LinearLayout>
 
 </LinearLayout>

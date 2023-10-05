@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorHeaderBg"
     tools:context="com.conpo.audiorac.fragment.DownListFragment">
 
     <LinearLayout
@@ -37,7 +38,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#F3F3F3">
+            android:background="@color/colorHeaderBg">
 
             <!-- 디렉토리 뷰 -->
             <LinearLayout

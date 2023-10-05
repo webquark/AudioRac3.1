@@ -8,7 +8,7 @@
     <item android:bottom="1dp"  android:top="1dp" >
         // add android:right="5dp" and android:left="5dp" for border on left and right
         <shape android:shape="rectangle">
-            <solid android:color="#F0EDED" />
+            <solid android:color="@color/colorHeaderBg" />
             <padding android:left="@dimen/marginNormal" android:top="@dimen/marginLine" android:right="@dimen/marginNormal" android:bottom="@dimen/marginLine"/>
         </shape>
     </item>

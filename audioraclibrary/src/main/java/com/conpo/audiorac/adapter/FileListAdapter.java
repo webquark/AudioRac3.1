@@ -8,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.conpo.audiorac.application.LoginInfo;
 import com.conpo.audiorac.library.R;
 import com.conpo.audiorac.model.DrmFile;
 
@@ -113,7 +115,11 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 			}
 
 			holder.tvDuration.setVisibility(View.INVISIBLE);
-			Glide.with(mContext).load(R.drawable.ico_folder).into(holder.ivIcon);
+			if (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+				Glide.with(mContext).load(R.drawable.ico_folder).into(holder.ivIcon);
+			} else {
+				Glide.with(mContext).load(R.drawable.ico_folder_dark).into(holder.ivIcon);
+			}
 
 		} else {
 			/*
