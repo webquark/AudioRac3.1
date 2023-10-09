@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.conpo.audiorac.application.Common;
 import com.conpo.audiorac.application.LoginInfo;
 import com.conpo.audiorac.util.HttpUtil;
@@ -35,6 +37,7 @@ public class HomeViewFragment extends WebViewFragmentBase {
         mView = super.onCreateView(inflater, container, savedInstanceState);
 
         setWebViewClient(new HomeWebViewClient());
+        LoginInfo.loadPreferences(mContext);
 
         try {
             if (mCsCode != null && mCsCode.length() > 0) {
@@ -50,6 +53,7 @@ public class HomeViewFragment extends WebViewFragmentBase {
                 mUrl = LoginInfo.getSiteURL() + Common.URL_MOBILE_LOGIN;
                 mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
                 mUrl = mUrl.replace("{usrName}", LoginInfo.getUserPwd());   //URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR"));
+                mUrl = mUrl.replace("{mode}", (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) ? "Light" : "Dark");
                 mUrl = mUrl.replace("{dest}", "Main");
                 mUrl = mUrl.replace("{appVer}", Utils.getAppVersion(mContext));
             }
@@ -132,6 +136,7 @@ public class HomeViewFragment extends WebViewFragmentBase {
                 mUrl = LoginInfo.getSiteURL() + Common.URL_MOBILE_LOGIN;
                 mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
                 mUrl = mUrl.replace("{usrName}", LoginInfo.getUserPwd());   //URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR"));
+                mUrl = mUrl.replace("{mode}", (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) ? "Light" : "Dark");
                 mUrl = mUrl.replace("{dest}", "Main");
                 mUrl = mUrl.replace("{appVer}", Utils.getAppVersion(mContext));
 
@@ -152,6 +157,7 @@ public class HomeViewFragment extends WebViewFragmentBase {
                 mUrl = LoginInfo.getSiteURL() + Common.URL_MOBILE_LOGIN;
                 mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
                 mUrl = mUrl.replace("{usrName}", LoginInfo.getUserPwd());   //URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR"));
+                mUrl = mUrl.replace("{mode}", (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) ? "Light" : "Dark");
                 mUrl = mUrl.replace("{dest}", "Main");
                 mUrl = mUrl.replace("{appVer}", Utils.getAppVersion(mContext));
 

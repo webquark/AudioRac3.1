@@ -122,6 +122,12 @@ public class MainActivity extends ActivityBase
         }
     }
 
+    public void restart() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
      /**
      * 아이템 Id로 네비게이션 탭 선택
      * @param id 아이템 Id

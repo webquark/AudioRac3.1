@@ -130,22 +130,33 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorValueBg"
                     android:orientation="vertical" >
-                    <LinearLayout
+                    <RadioGroup
+                        android:id="@+id/themeGroup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:elevation="5dp"
+                        android:gravity="center"
                         android:layout_marginBottom="@dimen/marginWide"
                         android:layout_marginLeft="@dimen/marginXtraWide"
                         android:layout_marginRight="@dimen/marginXtraWide"
                         android:layout_marginTop="@dimen/marginWide"
-                        android:orientation="horizontal" >
-                        <Spinner
-                            android:id="@+id/sp_theme_mode"
-                            android:layout_width="140dp"
-                            android:layout_height="40dp"
-                            android:prompt="@string/prompt_theme_mode"
-                            android:dropDownVerticalOffset="41dp"
-                            android:background="@drawable/bg_spinner"/>
-                    </LinearLayout>
+                        tools:ignore="UselessParent">
+                        <RadioButton
+                            android:id="@+id/rb_light_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/colorLight"
+                            android:textColor="@color/colorLight"
+                            android:text="@string/label_light_mode" />
+                        <LinearLayout style="@style/HorizontalDivider" />
+                        <RadioButton
+                            android:id="@+id/rb_dark_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/colorLight"
+                            android:textColor="@color/colorLight"
+                            android:text="@string/label_dark_mode" />
+                    </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
 
@@ -185,6 +196,7 @@
                         android:layout_weight="1"
                         android:layout_marginTop="@dimen/marginWide"
                         android:layout_gravity="left|center_vertical"
+                        android:buttonTint="@color/colorLight"
                         android:text="@string/label_use_bedtime"
                         android:textColor="@color/colorLight"
                         android:textSize="@dimen/textMedium"/>
@@ -271,4 +283,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

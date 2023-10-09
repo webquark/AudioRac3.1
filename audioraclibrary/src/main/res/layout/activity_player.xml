@@ -63,128 +63,132 @@
 			android:textSize="@dimen/textMediumLarge" />
 	</LinearLayout>
 
-	<!-- 재생현황 -->
-	<LinearLayout
+	<!-- 배경이미지/재생현황 -->
+	<RelativeLayout
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_weight="2.7"
-		android:orientation="vertical">
+		android:layout_weight="4.7">
 		<!-- 배경이미지 -->
-		<ImageView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_gravity="top"
-			android:scaleType="fitXY"
-			android:src="@drawable/player_bg1" />
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="@dimen/marginNormal"
-			android:layout_marginRight="@dimen/marginNormal"
-			android:layout_marginBottom="@dimen/marginNormal"
-			android:orientation="vertical">
-
-			<SeekBar
-				android:id="@+id/sb_media_progress"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:maxHeight="9dp"
-				android:minHeight="9dp"
-				android:minWidth="200dp"
-				android:paddingLeft="@dimen/marginWide"
-				android:paddingRight="@dimen/marginWide"
-				android:paddingTop="10dp"
-				android:thumb="@drawable/seekbar_thumb" />
-
-			<LinearLayout
-				android:id="@+id/layout1"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="2dp"
-				android:orientation="horizontal">
-
-				<!-- 현재재생시간 -->
-				<TextView
-					android:id="@+id/txt_media_cduration"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginLeft="@dimen/marginWide"
-					android:layout_weight="1"
-					android:gravity="left"
-					android:text="현재재생시간"
-					android:textColor="#666"
-					android:textSize="@dimen/textMediumSmall"
-					android:textStyle="bold" />
-
-				<!-- 총재생시간 -->
-				<TextView
-					android:id="@+id/txt_media_tduration"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginRight="@dimen/marginWide"
-					android:layout_weight="1"
-					android:gravity="right"
-					android:text="총재생시간"
-					android:textColor="#666"
-					android:textSize="@dimen/textMediumSmall"
-					android:textStyle="bold" />
-			</LinearLayout>
-		</LinearLayout>
-
-	</LinearLayout>
-
-	<!-- 플레이어 버튼 -->
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="2"
-		android:padding="@dimen/marginXtraWide"
-		android:orientation="horizontal"
-		android:background="@drawable/player_bg2">
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:weightSum="3"
+			android:orientation="vertical">
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_gravity="top"
+				android:scaleType="fitXY"
+				android:src="@drawable/player_bg1" />
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:layout_gravity="top"
+				android:scaleType="fitXY"
+				android:src="@drawable/player_bg2" />
+		</LinearLayout>
+
+		<!-- 재생현황 -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:weightSum="3"
+			android:gravity="bottom"
+			android:orientation="vertical">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:layout_marginBottom="20dp"
+				android:orientation="vertical">
+				<SeekBar
+					android:id="@+id/sb_media_progress"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:maxHeight="9dp"
+					android:minHeight="9dp"
+					android:minWidth="200dp"
+					android:layout_marginLeft="@dimen/marginWide"
+					android:layout_marginRight="@dimen/marginWide"
+					android:paddingTop="@dimen/marginNormal"
+					android:thumb="@drawable/seekbar_thumb" />
+				<LinearLayout
+					android:id="@+id/layout1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal">
+
+					<!-- 현재재생시간 -->
+					<TextView
+						android:id="@+id/txt_media_cduration"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/marginWide"
+						android:layout_weight="1"
+						android:gravity="left"
+						android:text="@string/label_cduration"
+						android:textColor="@color/colorNormal"
+						android:textSize="@dimen/textMediumSmall"
+						android:textStyle="bold" />
+
+					<!-- 총재생시간 -->
+					<TextView
+						android:id="@+id/txt_media_tduration"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginRight="@dimen/marginWide"
+						android:layout_weight="1"
+						android:gravity="right"
+						android:text="@string/label_tduration"
+						android:textColor="@color/colorNormal"
+						android:textSize="@dimen/textMediumSmall"
+						android:textStyle="bold" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+
+		<!-- 플레이어 버튼 -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:weightSum="3"
+			android:layout_alignParentBottom="true"
 			android:layout_marginLeft="@dimen/marginUltraWide"
 			android:layout_marginRight="@dimen/marginUltraWide"
+			android:layout_marginBottom="@dimen/marginXtraWide"
 			android:orientation="horizontal">
-			<ImageButton
-				android:id="@+id/btn_play_list"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:visibility="gone"
-				android:layout_margin="@dimen/marginNormal"
-				android:scaleType="centerInside"
-				android:background="@android:color/transparent"
-				android:src="@drawable/xml_btn_open" />
 			<ImageButton
 				android:id="@+id/btn_file_play"
 				android:layout_width="0dp"
-				android:layout_height="wrap_content"
+				android:layout_height="70dp"
 				android:layout_weight="1"
 				android:layout_margin="@dimen/marginWide"
 				android:scaleType="centerInside"
 				android:background="@android:color/transparent"
-				android:src="@drawable/xml_btn_play" />
+				android:src="@drawable/xml_btn_play"
+				android:contentDescription="@string/label_play"/>
 			<ImageButton
 				android:id="@+id/btn_file_stop"
 				android:layout_width="0dp"
-				android:layout_height="wrap_content"
+				android:layout_height="70dp"
 				android:layout_weight="1"
 				android:layout_margin="@dimen/marginWide"
 				android:scaleType="centerInside"
 				android:background="@android:color/transparent"
-				android:src="@drawable/xml_btn_stop" />
+				android:src="@drawable/xml_btn_stop"
+				android:contentDescription="@string/label_stop"/>
 			<ImageButton
 				android:id="@+id/btn_file_pause"
 				android:layout_width="0dp"
-				android:layout_height="wrap_content"
+				android:layout_height="70dp"
 				android:layout_weight="1"
 				android:layout_margin="@dimen/marginWide"
 				android:scaleType="centerInside"
 				android:background="@android:color/transparent"
-				android:src="@drawable/xml_btn_pause"  />
+				android:src="@drawable/xml_btn_pause"
+				android:contentDescription="@string/label_pause"/>
 		</LinearLayout>
-	</LinearLayout>
-
+	</RelativeLayout>
 </LinearLayout>

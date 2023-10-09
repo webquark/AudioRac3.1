@@ -107,6 +107,7 @@ public class SplashActivity extends ActivityBase {
 					@Override
 					public void onFailure(Call<APIResponse> call, Throwable t) {
 						Log.d(LOG_TAG,"onFailure : " + t.getMessage());
+						goLogin();
 					}
 				});
 	}

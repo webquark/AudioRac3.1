@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/marginNormal"
         android:textColor="#333"
-        android:textSize="@dimen/textMediumLarge"
+        android:textSize="@dimen/textMedium"
         android:text="Item name">
     </TextView>
 </LinearLayout>

@@ -18,6 +18,20 @@ import com.conpo.audiorac.model.Record;
  *
  */
 public class SpinnerAdapter extends AdapterBase {
+
+	private int mSelectedPosition = -1;
+
+	private OnSelectionChangeListener mOnSelectionChangeListener;
+
+	public interface OnSelectionChangeListener {
+		public void onItemSelect(int position);
+	}
+
+	public void setOnSelectionChangeListener(OnSelectionChangeListener listener) {
+		mOnSelectionChangeListener = listener;
+	}
+
+
 	public SpinnerAdapter(Context context, ArrayList<Record> arSrc) {
 		super(context, arSrc);
 	}
@@ -33,10 +47,10 @@ public class SpinnerAdapter extends AdapterBase {
 		
 		if (view == null) {
 			view = mInflater.inflate(R.layout.spinner_view, parent, false);
-			
+
 			viewHolder = new ViewHolder();
 			viewHolder.tvItemName = (TextView)view.findViewById(R.id.tv_name);
-			
+
 			view.setTag(viewHolder);
 
 		} else {
@@ -44,13 +58,11 @@ public class SpinnerAdapter extends AdapterBase {
 		}
 
 		Record rec = arItems.get(position);
-		
-		viewHolder.tvItemName.setText( Html.fromHtml(rec.safeGet("name")).toString(), BufferType.SPANNABLE );
-		
+
+		viewHolder.tvItemName.setText(Html.fromHtml(rec.safeGet("name")).toString(), BufferType.SPANNABLE);
+
 		return view;
 	}
-
-
 
 	@Override
 	public View getDropDownView(int position, View convertView, ViewGroup parent) {
@@ -72,9 +84,13 @@ public class SpinnerAdapter extends AdapterBase {
 		Record rec = arItems.get(position);
 		
 		viewHolder.tvItemName.setText( Html.fromHtml(rec.safeGet("name")).toString(), BufferType.SPANNABLE );
-		
+
+		if (position == mSelectedPosition) {
+			viewHolder.tvItemName.setBackgroundColor(mContext.getColor(R.color.colorLight));
+		}
+
 		return view;
 	}
-	
-	
+
+
 }

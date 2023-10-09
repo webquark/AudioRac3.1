@@ -10,7 +10,7 @@
         android:layout_height="48dp"
         android:padding="@dimen/marginNormalWide"
         android:gravity="center"
-        android:background="#142938"
+        android:background="@color/colorActionBarBg"
         android:orientation="horizontal" >
 
         <ImageView

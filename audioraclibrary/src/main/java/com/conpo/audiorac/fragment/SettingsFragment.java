@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -39,8 +40,8 @@ import java.util.Calendar;
 public class SettingsFragment extends FragmentBase
         implements View.OnClickListener,
                     CompoundButton.OnCheckedChangeListener,
-                    TimePicker.OnTimeChangedListener,
-                    AdapterView.OnItemSelectedListener {
+                    TimePicker.OnTimeChangedListener {
+    private final String LOG_TAG = "Settings";
 
     private int mHour;
     private int mMinute;
@@ -59,30 +60,38 @@ public class SettingsFragment extends FragmentBase
             mContext = getContext();
         }
 
+        initializeThemeMode();
         initializeBedTimeUI();
 
         TextView tvUserId = mView.findViewById(R.id.tv_userid);
         TextView tvSiteName = mView.findViewById(R.id.tv_site_name);
-        Spinner spThemeMode = mView.findViewById(R.id.sp_theme_mode);
         TextView tvVersion = mView.findViewById(R.id.tv_version);
 
         tvUserId.setText(LoginInfo.getUserId());
         tvSiteName.setText(LoginInfo.getSiteName());
         tvVersion.setText( getString(R.string.text_current_version, Utils.getAppVersion(mContext)) );
 
-        String[] modes = getResources().getStringArray(R.array.ThemeMode);
-        ArrayList<Record> arrMode = new ArrayList<Record>();
-        for (String mode: modes) {
-            Record rec = new Record();
-            rec.put("name", mode);
-            arrMode.add(rec);
-        }
-        SpinnerAdapter adapter = new SpinnerAdapter(mContext, arrMode);
-        spThemeMode.setAdapter(adapter);
-        spThemeMode.setOnItemSelectedListener(this);
         ((Button)mView.findViewById(R.id.btn_logout)).setOnClickListener(this);
 
         return mView;
+    }
+
+    /**
+     * 테마 모드 선택
+     */
+    private void initializeThemeMode() {
+        RadioButton mRbLightMode = mView.findViewById(R.id.rb_light_mode);
+        RadioButton mRbDarkMode = mView.findViewById(R.id.rb_dark_mode);
+
+        mRbLightMode.setOnClickListener(this);
+        mRbDarkMode.setOnClickListener(this);
+
+        Log.d(LOG_TAG, "MODE: " + LoginInfo.getUIMode());
+        if (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+            mRbLightMode.setChecked(true);
+        } else {
+            mRbDarkMode.setChecked(true);
+        }
     }
 
     @Override
@@ -91,31 +100,25 @@ public class SettingsFragment extends FragmentBase
 
         if (id == R.id.btn_logout) {
             goLogout();
+        } else if (id == R.id.rb_light_mode) {
+            if (LoginInfo.getUIMode() != AppCompatDelegate.MODE_NIGHT_NO) {    // Light
+                LoginInfo.setUIMode(AppCompatDelegate.MODE_NIGHT_NO);
+                LoginInfo.savePreferences(mContext);
+
+                mMainActivity.restart();
+            }
+
+        } else if (id == R.id.rb_dark_mode) {
+            if (LoginInfo.getUIMode() != AppCompatDelegate.MODE_NIGHT_YES) { // Dark
+                LoginInfo.setUIMode(AppCompatDelegate.MODE_NIGHT_YES);
+                LoginInfo.savePreferences(mContext);
+
+                mMainActivity.restart();
+            }
+
         } else if (id == R.id.btn_save_bedtime) {
             saveBedtime(true);
         }
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long rowId) {
-        int id = parent.getId();
-
-        if (id == R.id.sp_theme_mode) {    // 테마 모드 선택
-            if (position == 0) {    // Light
-                LoginInfo.setUIMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-            } else if (position == 1) {     // Dark
-                LoginInfo.setUIMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
-
-            LoginInfo.savePreferences(mContext);
-            mMainActivity.setUIMode();
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
     private void initializeBedTimeUI() {

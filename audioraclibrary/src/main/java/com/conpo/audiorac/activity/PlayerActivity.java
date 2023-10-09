@@ -104,16 +104,8 @@ public class PlayerActivity extends ActivityBase
 		mTvMediaCDuration.setText("00:00");
 		mTvMediaTDuration.setText("00:00");
 
+		initializeControlButtons();
 		// Control buttons
-		mBtnFilePlay = findViewById(R.id.btn_file_play);
-		mBtnFileStop = findViewById(R.id.btn_file_stop);
-		mBtnFilePause = findViewById(R.id.btn_file_pause);
-
-		mBtnFilePlay.setOnClickListener(this);
-		mBtnFileStop.setOnClickListener(this);
-		mBtnFilePause.setOnClickListener(this);
-
-		onChangeMediaBtnState(true, false, false, false);
 
 		// Duration Handler
 		mHandlerDuration = new Handler() {
@@ -149,6 +141,19 @@ public class PlayerActivity extends ActivityBase
 
 	protected void onCreated() {
 
+	}
+
+	private void initializeControlButtons() {
+		// Control buttons
+		mBtnFilePlay = findViewById(R.id.btn_file_play);
+		mBtnFileStop = findViewById(R.id.btn_file_stop);
+		mBtnFilePause = findViewById(R.id.btn_file_pause);
+
+		mBtnFilePlay.setOnClickListener(this);
+		mBtnFileStop.setOnClickListener(this);
+		mBtnFilePause.setOnClickListener(this);
+
+		onChangeMediaBtnState(true, false, false, false);
 	}
 
 	/**

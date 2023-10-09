@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center"
-        android:background="#142938"
+        android:background="@color/colorActionBarBg"
         android:orientation="horizontal" >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:paddingBottom="@dimen/marginNormal"
                 android:paddingTop="@dimen/marginNormal"
                 android:text="xxxx도서관"
-                android:textColor="#fff"
+                android:textColor="@color/colorActionBarTitle"
                 android:textSize="@dimen/textMediumLarge" />
             <ImageView
                 android:layout_width="wrap_content"

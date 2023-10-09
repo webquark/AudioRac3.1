@@ -9,7 +9,13 @@
 	<color name="colorNormal">#FF333333</color>
 	<color name="colorLight">#FFAAAAAA</color>
 
+	<!-- 액션바 -->
+	<color name="colorActionBarBg">#142938</color>
+	<color name="colorActionBarTitle">#FFFFFF</color>
+
 	<color name="colorHeaderBg">#EFEFF4</color>
 	<color name="colorValueBg">#FFFFFF</color>
 	<color name="colorDivider">#dcdcdc</color>
+
+
 </resources>

@@ -38,7 +38,7 @@ public class Common {
 	public static final String URL_GET_VERSION		= "/api/mobile/getVersion.php";
 	public static final String URL_REQ_LOGIN 	  	= "/api/mobile/userLogin.php?usid={usid}&usname={usname}&paid=2222";
 
-	public static final String URL_MOBILE_LOGIN 	= "/api/mobile/login_proc_app.php?user_id={usrId}&user_name={usrName}&dest={dest}&cs_code={csCode}&ch_code={chCode}&appVer={appVer}";
+	public static final String URL_MOBILE_LOGIN 	= "/api/mobile/login_proc_app.php?user_id={usrId}&user_name={usrName}&mode={mode}&dest={dest}&cs_code={csCode}&ch_code={chCode}&appVer={appVer}";
 
 	static {
 		_instance = new Common();
