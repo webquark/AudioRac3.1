@@ -38,6 +38,7 @@ public final class SlideUpBuilder {
      */
     public SlideUpBuilder(View sliderView) {
         Internal.checkNonNull(sliderView, "View can't be null");
+        sliderView.setVisibility(View.INVISIBLE);
         mSliderView = sliderView;
         mDensity = sliderView.getResources().getDisplayMetrics().density;
         mIsRTL = sliderView.getResources().getBoolean(R.bool.is_right_to_left);

@@ -97,7 +97,7 @@ public class DownListFragment extends FragmentBase
         initializeFileList();
         initializeDRMStorage();
 
-        Log.d(LOG_TAG, "DownList Initialized");
+        Log.d(LOG_TAG, "DOWN_LIST Initialized");
 
         return mView;
     }
@@ -184,6 +184,8 @@ public class DownListFragment extends FragmentBase
 
     @Override
     public void onRefresh() {
+        if (mSwipeContainer == null) return;
+
         mSwipeContainer.setRefreshing(true);
         setCurrentPath(mCurrentPath, false, null);
         mSwipeContainer.setRefreshing(false);

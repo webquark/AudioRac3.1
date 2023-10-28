@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.conpo.audiorac.application.AudioRacApplication;
 import com.conpo.audiorac.application.Common;
@@ -88,7 +89,6 @@ public class MainActivity extends ActivityBase
             return setNavigationItem(id);
         });
 
-        setFragment(mDownListView, "2", 1);
         setFragment(mHomeView, "1", 0);
 
         initializeSlideUpMenu();
@@ -186,7 +186,7 @@ public class MainActivity extends ActivityBase
      * @return
      */
     public boolean setNavigationTab(int index) {
-        return setNavigationItem(mNavigationIds[index]);
+        return setNavigationItem( mNavigationIds[index] );
     }
 
     /**
@@ -197,18 +197,22 @@ public class MainActivity extends ActivityBase
      */
     public void setFragment(FragmentBase fragment, String tag, int position) {
         final FragmentManager fm = getSupportFragmentManager();
+        String action = "";
 
         if (fragment.isAdded()) {
-            fm.beginTransaction().hide(mActiveView).show(fragment).commit();
+            fm.beginTransaction().hide(mActiveView).commit();
+            fm.beginTransaction().show(fragment).commit();
+            action = "show";
 
         } else {
             fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, fragment, tag).commit();
+            action = "add";
         }
 
         mNavView.getMenu().getItem(position).setChecked(true);
         mActiveView = fragment;
 
-        Log.d(LOG_TAG, String.format("TAB[%d]: %s", position, fragment.getClass().toString()) );
+        Log.d(LOG_TAG, String.format("TAB[%d]: %s: %s", position, action, fragment.getClass().toString()) );
     }
 
     /**
