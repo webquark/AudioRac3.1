@@ -171,18 +171,10 @@ public class HomeViewFragment extends WebViewFragmentBase {
     }
 
     public void gotoCourse(String csCode) {
-        mUrl = LoginInfo.getSiteURL() + "/mobile/course/content.php?" +
-                "cs_code=" + csCode;
+        mUrl = LoginInfo.getSiteURL() + "/audio/course/content.html?" + "cs=" + csCode;
 
         mUrl = HttpUtil.verifyUrl(mUrl);
         mWebView.loadUrl(mUrl);
-    }
-
-    /**
-     * 웹뷰의 미디어 플레이어 멈추기
-     */
-    public void stopAudioPlayer() {
-        mWebView.loadUrl("javascript:playerStop();");
     }
 
     @Override

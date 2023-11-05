@@ -281,6 +281,7 @@ public class MainActivity extends ActivityBase
      */
     public void stopWebAudioPlayer() {
         mHomeView.stopAudioPlayer();
+        mMyAudioView.stopAudioPlayer();
     }
 
     public void stopStreaming() {

@@ -100,6 +100,7 @@ public class SettingsFragment extends FragmentBase
 
         if (id == R.id.btn_logout) {
             goLogout();
+
         } else if (id == R.id.rb_light_mode) {
             if (LoginInfo.getUIMode() != AppCompatDelegate.MODE_NIGHT_NO) {    // Light
                 LoginInfo.setUIMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -180,6 +181,8 @@ public class SettingsFragment extends FragmentBase
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+                        mMainActivity.stopWebAudioPlayer();
+
                         LoginInfo.logout(mContext);
 
                         Intent intent = new Intent(mContext, LoginActivity.class);
@@ -193,7 +196,8 @@ public class SettingsFragment extends FragmentBase
     public void setAlarm(Context context) {
 
         Intent intent = new Intent(context, AlarmActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, mHour);

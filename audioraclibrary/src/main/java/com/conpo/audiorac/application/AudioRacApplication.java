@@ -200,7 +200,7 @@ public class AudioRacApplication extends Application {
 		String response = "";
 
 		try {
-			String searchURL = HttpUtil.verifyUrl(LoginInfo.getSiteURL() + "/audio/api/search_barcode.php?barcode={barcode}&type={type}" + "&nocache=" + CPDRMUtil.getTimestamp());
+			String searchURL = HttpUtil.verifyUrl(LoginInfo.getSiteURL() + "/api/audio/search_barcode.php?barcode={barcode}&type={type}" + "&nocache=" + CPDRMUtil.getTimestamp());
 
 			searchURL = searchURL.replace("{barcode}", barcode);
 			searchURL = searchURL.replace("{type}", type);

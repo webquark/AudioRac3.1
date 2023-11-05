@@ -179,6 +179,15 @@ public class WebViewFragmentBase extends FragmentBase
     }
 
     /**
+     * 웹뷰의 미디어 플레이어 멈추기
+     */
+    public void stopAudioPlayer() {
+        if (mWebView != null) {
+            mWebView.loadUrl("javascript:playerStop();");
+        }
+    }
+
+    /**
      * AudioRac 웹사이트의 플레이어에서 다운로드를 시작했을 때 호출됨
      */
     public void onFileDownload() {
