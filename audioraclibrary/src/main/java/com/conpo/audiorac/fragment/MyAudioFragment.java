@@ -102,8 +102,23 @@ public class MyAudioFragment extends WebViewFragmentBase {
     public void gotoHome() {
         super.gotoHome();
 
-        if (mWebView != null) {
-            mWebView.goBackOrForward(-1 * (mWebView.copyBackForwardList().getSize() - 2));
+        if (mWebView == null) {
+            //mWebView.goBackOrForward(-1 * (mWebView.copyBackForwardList().getSize() - 2));
+            return;
+        }
+
+        try {
+            mUrl = LoginInfo.getSiteURL() + Common.URL_MOBILE_LOGIN;
+            mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
+            mUrl = mUrl.replace("{usrName}", LoginInfo.getUserPwd()); //URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR"));
+            mUrl = mUrl.replace("{dest}", "MyAudio");
+            mUrl = mUrl.replace("{appVer}", Utils.getAppVersion(mContext));
+
+            mUrl = HttpUtil.verifyUrl(mUrl);
+            mWebView.loadUrl(mUrl);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
