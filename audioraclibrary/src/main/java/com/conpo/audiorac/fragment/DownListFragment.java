@@ -161,7 +161,10 @@ public class DownListFragment extends FragmentBase
 
         if (listFolderFiles(path)) {
             mCurrentPath = path;
-            mAdapter.notifyDataSetChanged();
+
+            if (mAdapter != null) {
+                mAdapter.notifyDataSetChanged();
+            }
 
             displayCurrentPath(addHistory);
 
@@ -178,8 +181,10 @@ public class DownListFragment extends FragmentBase
         if (addHistory)
             mPathHistory.add(mCurrentPath);
 
-        String displayPath = mCurrentPath.substring(Environment.getExternalStorageDirectory().getAbsolutePath().length());
-        mTvPath.setText(displayPath);
+        if (mTvPath != null) {
+            String displayPath = mCurrentPath.substring(Environment.getExternalStorageDirectory().getAbsolutePath().length());
+            mTvPath.setText(displayPath);
+        }
     }
 
     @Override
