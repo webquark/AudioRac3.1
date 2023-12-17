@@ -58,8 +58,8 @@ public class PlayList {
 	public static int moveNext() {
 		if (isNextAvailable()) {
 			return ++mPlayIndex;
-		}
-		else {
+
+		} else {
 			return -1;
 		}
 	}

@@ -43,6 +43,8 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -87,6 +89,13 @@ public class PlayerActivity extends ActivityBase
 		 */
 		mCPDrmPlayer = new CPDRMPlayer(this);
 		mCPDrmPlayer.getMediaPlayer().setOnCompletionListener(this);
+
+		ImageView ivLogo = findViewById(R.id.iv_logo);
+		if (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+			Glide.with(this).load(R.drawable.title_logo).into(ivLogo);
+		} else {
+			Glide.with(this).load(R.drawable.title_logo_dark).into(ivLogo);
+		}
 
 		/*
 		 * Player UI
@@ -135,11 +144,6 @@ public class PlayerActivity extends ActivityBase
 		 * 미디어 준비 및 플레이
 		 */
 		prepareMediaAndPlay();
-
-		onCreated();
-	}
-
-	protected void onCreated() {
 
 	}
 

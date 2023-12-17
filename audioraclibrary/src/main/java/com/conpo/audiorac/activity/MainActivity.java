@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
 import com.conpo.audiorac.application.AudioRacApplication;
 import com.conpo.audiorac.application.Common;
 import com.conpo.audiorac.application.LoginInfo;
@@ -82,6 +84,13 @@ public class MainActivity extends ActivityBase
         TextView tvSiteName = (TextView)findViewById(R.id.tv_site_name);
         tvSiteName.setText(LoginInfo.getSiteName());
         tvSiteName.setOnClickListener(this);
+
+        ImageView ivLogo = findViewById(R.id.iv_logo);
+        if (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+            Glide.with(this).load(R.drawable.title_logo).into(ivLogo);
+        } else {
+            Glide.with(this).load(R.drawable.title_logo_dark).into(ivLogo);
+        }
 
         mNavView = findViewById(R.id.bottom_nav_view);
         mNavView.setOnItemSelectedListener(item -> {

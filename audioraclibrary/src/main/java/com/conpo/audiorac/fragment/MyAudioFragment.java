@@ -20,7 +20,7 @@ import com.conpo.audiorac.widget.webview.InnerWebViewClient;
 import java.net.URLEncoder;
 
 /**
- * 마이 오디오 액티비티
+ * 마이 오디오 프래그먼트
  */
 public class MyAudioFragment extends WebViewFragmentBase {
 

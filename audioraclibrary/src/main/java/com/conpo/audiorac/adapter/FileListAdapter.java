@@ -39,9 +39,9 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 	private OnItemClickListener mOnItemClickListener;
 
 	public interface OnItemClickListener {
-		void onItemClick(ModelBase item);
-		void onFolderMenu(ModelBase item);
-		void onFileMenu(ModelBase item);
+		void onItemClick(int index, ModelBase item);
+		void onFolderMenu(int index, ModelBase item);
+		void onFileMenu(int index, ModelBase item);
 	}
 
 	public void setOnItemClickListener(OnItemClickListener listener) {
@@ -177,7 +177,7 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 			@Override
 			public void onClick(View v) {
 				if (mOnItemClickListener != null) {
-					mOnItemClickListener.onItemClick(drmFile);
+					mOnItemClickListener.onItemClick(holder.getAdapterPosition(), drmFile);
 				}
 			}
 		});
@@ -187,9 +187,9 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 			public boolean onLongClick(View v) {
 				if (mOnItemClickListener != null) {
 					if (drmFile.type.equals("folder")) {
-						mOnItemClickListener.onFolderMenu(drmFile);
+						mOnItemClickListener.onFolderMenu(holder.getAdapterPosition(), drmFile);
 					} else {
-						mOnItemClickListener.onFileMenu(drmFile);
+						mOnItemClickListener.onFileMenu(holder.getAdapterPosition(), drmFile);
 					}
 				}
 				return true;

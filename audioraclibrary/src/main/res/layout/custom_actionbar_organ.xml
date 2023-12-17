@@ -26,10 +26,12 @@
                 android:textColor="@color/colorActionBarTitle"
                 android:textSize="@dimen/textMediumLarge" />
             <ImageView
+                android:id="@+id/iv_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/heightMiddleLow"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/marginNarrow"
                 android:layout_marginBottom="@dimen/marginNarrow"
                 android:src="@drawable/title_logo" />
         </RelativeLayout>

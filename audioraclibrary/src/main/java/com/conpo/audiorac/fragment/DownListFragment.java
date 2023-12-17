@@ -201,7 +201,7 @@ public class DownListFragment extends FragmentBase
      * @param item
      */
     @Override
-    public void onItemClick(ModelBase item) {
+    public void onItemClick(int index, ModelBase item) {
         DrmFile drmFile = (DrmFile)item;
         Log.d(LOG_TAG, drmFile.name);
 
@@ -212,7 +212,9 @@ public class DownListFragment extends FragmentBase
             }
 
             PlayList.resetPlayList();
-            PlayList.addFile(drmFile);
+            //PlayList.addFile(drmFile);
+            PlayList.setPlayIndex(index);
+            PlayList.addFiles(mDrmFileList);
 
             mMainActivity.stopWebAudioPlayer();
 
@@ -238,7 +240,7 @@ public class DownListFragment extends FragmentBase
     }
 
     @Override
-    public void onFolderMenu(ModelBase item) {
+    public void onFolderMenu(int index, ModelBase item) {
         final DrmFile drmFile = (DrmFile)item;
 
         SlideUpHelper.showMenu(drmFile.name, R.menu.menu_folder, false,
@@ -277,7 +279,7 @@ public class DownListFragment extends FragmentBase
     }
 
     @Override
-    public void onFileMenu(ModelBase item) {
+    public void onFileMenu(int index, ModelBase item) {
         final DrmFile drmFile = (DrmFile)item;
 
         SlideUpHelper.showMenu(drmFile.name, R.menu.menu_mp3, false,
@@ -288,7 +290,7 @@ public class DownListFragment extends FragmentBase
 
                         int id = menuItem.getItemId();
                         if (id == R.id.action_listen) {
-                            onItemClick(drmFile);
+                            onItemClick(index, drmFile);
 
                         } else if (id == R.id.action_delete) {
                             final String path = drmFile.path + drmFile.name;
