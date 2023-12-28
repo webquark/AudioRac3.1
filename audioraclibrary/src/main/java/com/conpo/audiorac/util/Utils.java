@@ -49,7 +49,7 @@ public class Utils {
 	    NetworkInfo lte_4g = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIMAX);
 	    
 	    boolean isLte_4g = false;
-	    if(lte_4g != null && lte_4g.isConnected()) {
+	    if (lte_4g != null && lte_4g.isConnected()) {
 	    	return true;
 	    }
 	    
