@@ -35,6 +35,7 @@
     <string name="msg_new_version">오디오락 새 버전이 있습니다. 원활한 사용을 위하여 업데이트 해주시기 바랍니다.</string>
 
     <!-- 로그인 -->
+    <string name="hint_keyword">도서관명 검색</string>
     <string-array name="OrganizationType">
         <item>대학교</item>
         <item>도서관</item>

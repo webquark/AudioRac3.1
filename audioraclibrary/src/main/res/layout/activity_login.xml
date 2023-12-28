@@ -36,7 +36,7 @@
 	                android:layout_width="0dp"
 	                android:layout_height="wrap_content"
 	                android:layout_weight="1"
-	                android:hint="도서관명 검색"
+	                android:hint="@string/hint_keyword"
 	                android:singleLine="true" />
                 
             	<Button
@@ -44,7 +44,7 @@
 		            android:layout_width="100dp"
 		            android:layout_height="@dimen/heightMiddleHigh"
 		            android:layout_marginLeft="@dimen/marginNormal"
-		            android:text="검색"
+		            android:text="@string/search"
 		            android:textColor="#FFFFFF"
 		            android:textSize="@dimen/textMedium"
 		            android:background="@drawable/btn_blue_bg" />
