@@ -20,7 +20,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:usesCleartextTraffic="true"
-        android:name=".application.AudioRacApplication">
+        android:name=".application.AudioRacApplication"
+        android:requestLegacyExternalStorage="true">
 
         <activity
             android:name=".activity.SplashActivity"

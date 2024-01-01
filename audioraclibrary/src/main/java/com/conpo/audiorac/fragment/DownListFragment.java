@@ -86,6 +86,8 @@ public class DownListFragment extends FragmentBase
             mContext = getContext();
         }
 
+        Log.d(LOG_TAG, "DownView1");
+
         mMainActivity = (MainActivity)getActivity();
         DRM_FOLDER_PATH = mMainActivity.getAudioRacApplication().getDRMFolder();
 
@@ -97,7 +99,7 @@ public class DownListFragment extends FragmentBase
         initializeFileList();
         initializeDRMStorage();
 
-        Log.d(LOG_TAG, "DOWN_LIST Initialized");
+        Log.d(LOG_TAG, "DownView2");
 
         return mView;
     }

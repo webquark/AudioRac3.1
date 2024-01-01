@@ -146,7 +146,7 @@ public class WebViewFragmentBase extends FragmentBase
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
 
-            WebViewFragmentBase.this.onPageStarted();
+            onMyPageStarted();
         }
 
         @Override
@@ -154,8 +154,38 @@ public class WebViewFragmentBase extends FragmentBase
             super.onPageFinished(view, url);
 
             Log.d(LOG_TAG, "URL: " + url);
-            WebViewFragmentBase.this.onPageFinished();
+            onMyPageFinished();
         }
+    }
+
+    /**
+     * 새로운 페이지로 이동할때 실행
+     */
+    public void onMyPageStarted() {
+        this.showProgress();
+
+        hideBackButton();
+    }
+
+    /**
+     * 새로운 페이지가 불려지면 실행
+     */
+    public void onMyPageFinished() {
+        this.hideProgress();
+
+        if (mWebView.canGoBack()) {
+            showBackButton();
+        } else {
+            hideBackButton();
+        }
+    }
+
+    public void hideBackButton() {
+        mBtnGoBack.setVisibility(View.GONE);
+    }
+
+    public void showBackButton() {
+        mBtnGoBack.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -257,25 +287,6 @@ public class WebViewFragmentBase extends FragmentBase
      */
     public void onFileDownload() {
         return;
-    }
-
-    public void onPageStarted() {
-        this.showProgress();
-
-        mBtnGoBack.setVisibility(View.GONE);
-    }
-
-    /**
-     * 새로운 페이지가 불려지면 실행
-     */
-    public void onPageFinished() {
-        this.hideProgress();
-
-        if (mWebView.canGoBack()) {
-            mBtnGoBack.setVisibility(View.VISIBLE);
-        } else {
-            mBtnGoBack.setVisibility(View.GONE);
-        }
     }
 
     @Override

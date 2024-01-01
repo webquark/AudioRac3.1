@@ -1,5 +1,7 @@
 package com.conpo.audiorac.util;
 
+import android.util.Log;
+
 import java.io.File;
 import java.util.Arrays;
 
@@ -8,11 +10,15 @@ import java.util.Arrays;
  */
 public class FileUtil {
 
+    private static final String LOG_TAG = "FileUtil";
+
     public static void makeFolder(String folderPath) {
         File file = new File(folderPath);
         if (!file.exists()) {
             try {
-                file.mkdirs();
+                boolean res = file.mkdirs();
+                if (!res)
+                    Log.d(LOG_TAG, "Make folder failed " + folderPath);
 
             } catch (Exception e) {
                 e.printStackTrace();

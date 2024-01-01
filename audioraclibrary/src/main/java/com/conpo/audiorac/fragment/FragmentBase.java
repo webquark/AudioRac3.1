@@ -174,7 +174,11 @@ public class FragmentBase extends Fragment {
     }
 
     protected void showToast(String text) {
-        Toast.makeText(mContext, text, Toast.LENGTH_SHORT).show();
+        if (mContext != null) {
+            Toast.makeText(mContext, text, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,8 @@ public class BarcodeFragment extends FragmentBase
             mContext = getContext();
         }
 
+        Log.d(LOG_TAG, "BarcodeView1");
+
         mTvBarcode = mView.findViewById(R.id.tv_barcode);
         mTvCourseName = mView.findViewById(R.id.tv_cs_name);
 
@@ -65,6 +68,8 @@ public class BarcodeFragment extends FragmentBase
 
         mBtnBook.setOnClickListener(this);
         mBtnContent.setOnClickListener(this);
+
+        Log.d(LOG_TAG, "BarcodeView2");
 
         return mView;
     }

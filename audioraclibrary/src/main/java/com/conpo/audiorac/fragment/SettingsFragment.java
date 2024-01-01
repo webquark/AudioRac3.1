@@ -60,6 +60,8 @@ public class SettingsFragment extends FragmentBase
             mContext = getContext();
         }
 
+        Log.d(LOG_TAG, "SettingsView1");
+
         initializeThemeMode();
         initializeBedTimeUI();
 
@@ -72,6 +74,8 @@ public class SettingsFragment extends FragmentBase
         tvVersion.setText( getString(R.string.text_current_version, Utils.getAppVersion(mContext)) );
 
         ((Button)mView.findViewById(R.id.btn_logout)).setOnClickListener(this);
+
+        Log.d(LOG_TAG, "SettingsView2");
 
         return mView;
     }

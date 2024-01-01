@@ -58,7 +58,7 @@ public class PermissionActivity extends ActivityBase {
 
             } else {
                 if (!checkREAD_STORAGEPermission(mContext)) {
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             PERMISSION_REQUEST_READ_STORAGE);
                 } else if (!checkCAMERAPermission(mContext)) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},

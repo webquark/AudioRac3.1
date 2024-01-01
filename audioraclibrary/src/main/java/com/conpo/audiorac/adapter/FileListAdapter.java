@@ -134,6 +134,7 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 
 				} else if (remain == -2) {
 					remainStr = mContext.getString(R.string.drm_remain_no_limit);
+
 				} else {
 					long day = TimeUnit.MILLISECONDS.toDays(remain);
 					long hour = TimeUnit.MILLISECONDS.toHours(remain);
@@ -164,6 +165,7 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.ViewHo
 				holder.tvExpireDate.setVisibility(View.VISIBLE);
 				holder.tvExpireDate.setText(remainStr);
 				holder.tvExpireDate.setTextColor(remainColor);
+
 			} else {
 				holder.tvExpireDate.setVisibility(View.GONE);
 			}

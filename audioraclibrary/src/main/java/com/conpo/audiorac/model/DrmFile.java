@@ -21,4 +21,9 @@ public class DrmFile extends ModelBase {
 
     public String courseId = null;
     public String chapterId = null;
+
+    @Override
+    public String toString() {
+        return album + ":" + name;
+    }
 }

@@ -31,9 +31,12 @@ public class MyAudioFragment extends WebViewFragmentBase {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView = super.onCreateView(inflater, container, savedInstanceState);
 
+        Log.d(LOG_TAG, "MyView1");
         LoginInfo.loadPreferences(mContext);
 
         gotoHome();
+
+        Log.d(LOG_TAG, "MyView2");
 
         return mView;
     }

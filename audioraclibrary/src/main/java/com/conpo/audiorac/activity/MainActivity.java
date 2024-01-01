@@ -17,12 +17,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.conpo.audiorac.application.AudioRacApplication;
-import com.conpo.audiorac.application.Common;
 import com.conpo.audiorac.application.LoginInfo;
 import com.conpo.audiorac.fragment.BarcodeFragment;
 import com.conpo.audiorac.fragment.DownListFragment;
@@ -98,7 +98,14 @@ public class MainActivity extends ActivityBase
             return setNavigationItem(id);
         });
 
-        setFragment(mHomeView, "1", 0);
+        final FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, mDownListView, "2").commit();
+        fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, mMyAudioView, "3").commit();
+        fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, mBarcodeView, "4").commit();
+        fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, mSettingsView, "5").commit();
+        fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, mHomeView, "1").commit();
+
+        setFragment(mHomeView, 0);
 
         initializeSlideUpMenu();
 
@@ -150,8 +157,11 @@ public class MainActivity extends ActivityBase
         if (id == R.id.navigation_home) {   // 홈
             if (mNavView.getSelectedItemId() == R.id.navigation_home) {
                 mHomeView.gotoHome();
+
             } else {
-                setFragment(mHomeView, "1", 0);
+                setFragment(mHomeView, 0);
+
+                mHomeView.checkHomeUrl();
             }
 
         } else if (id == R.id.navigation_down_list) {   // 다운로드
@@ -160,7 +170,7 @@ public class MainActivity extends ActivityBase
                 mDownListView.getPermissionLauncher().launch(intent);
 
             } else {
-                setFragment(mDownListView, "2", 1);
+                setFragment(mDownListView, 1);
                 mDownListView.onRefresh();
             }
 
@@ -168,7 +178,7 @@ public class MainActivity extends ActivityBase
             if (mNavView.getSelectedItemId() == R.id.navigation_my_audio) {
                 mMyAudioView.gotoHome();
             } else {
-                setFragment(mMyAudioView, "3", 2);
+                setFragment(mMyAudioView, 2);
             }
 
         } else if (id == R.id.navigation_barcode) {     // 바코드
@@ -179,11 +189,11 @@ public class MainActivity extends ActivityBase
                 mBarcodeView.getPermissionLauncher().launch(intent);
 
             } else {
-                setFragment(mBarcodeView, "4", 3);
+                setFragment(mBarcodeView, 3);
             }
 
         } else if (id == R.id.navigation_settings) {     // 설정
-            setFragment(mSettingsView, "5", 4);
+            setFragment(mSettingsView, 4);
         }
 
         return false;
@@ -204,24 +214,22 @@ public class MainActivity extends ActivityBase
      * @param tag 뷰 구분 태그
      * @param position 탭 위치
      */
-    public void setFragment(FragmentBase fragment, String tag, int position) {
+    public void setFragment(FragmentBase fragment, int position) {
         final FragmentManager fm = getSupportFragmentManager();
-        String action = "";
+        FragmentTransaction ft = fm.beginTransaction();
 
-        if (fragment.isAdded()) {
-            fm.beginTransaction().hide(mActiveView).commit();
-            fm.beginTransaction().show(fragment).commit();
-            action = "show";
-
-        } else {
-            fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, fragment, tag).commit();
-            action = "add";
-        }
+        Log.d(LOG_TAG, String.format("TAB[%d]: show: %s, hide: %s", position, fragment.getClass().toString(),
+                                                    mActiveView.getClass().toString()) );
+        ft.hide(mHomeView);
+        ft.hide(mDownListView);
+        ft.hide(mMyAudioView);
+        ft.hide(mBarcodeView);
+        ft.hide(mSettingsView);
+        ft.show(fragment);
+        ft.commit();
 
         mNavView.getMenu().getItem(position).setChecked(true);
         mActiveView = fragment;
-
-        Log.d(LOG_TAG, String.format("TAB[%d]: %s: %s", position, action, fragment.getClass().toString()) );
     }
 
     /**
@@ -360,11 +368,11 @@ public class MainActivity extends ActivityBase
                 return;
             }
 
-            String filelist = result;
-            Log.i(Common.TAG, "FileContent:" + filelist);
+            String fileList = result;
+            Log.i(LOG_TAG, "FileContent:" + fileList);
 
-            String[] arrFileList = filelist.split("\r\n");
-            if (arrFileList.length <= 0) {
+            String[] arrFileList = fileList.split("\r\n");
+            if (arrFileList.length == 0) {
                 hideProgress();
                 return;
             }
@@ -402,6 +410,10 @@ public class MainActivity extends ActivityBase
             }
 
             hideProgress();
+
+            /**
+             * 파일 다운로드 실행
+             */
             executeDownload(arrDrmFile);
         }
     }
@@ -414,7 +426,8 @@ public class MainActivity extends ActivityBase
     public class FileDownloadTask extends AsyncTask<ArrayList<DrmFile>, String, String> {
 
         private boolean mIsCanceled = false;
-        private int mDownIndex = 0;
+        private int mTotDownCount = 0;
+        private int mDownCount = 0;
         private ArrayList<DrmFile> mArrDrmFile;
 
         protected void onPreExecute() {
@@ -437,11 +450,14 @@ public class MainActivity extends ActivityBase
 
         protected String doInBackground(ArrayList<DrmFile>...params) {
             mArrDrmFile = params[0];
+            mTotDownCount = mArrDrmFile.size();
             publishProgress("" + 0 );
 
             int count;
 
             for (DrmFile drmFile : mArrDrmFile) {
+                mDownCount++;
+
                 String fileUrl = drmFile.url.trim();
                 String localPath = drmFile.path.trim();
 
@@ -455,7 +471,7 @@ public class MainActivity extends ActivityBase
                     URLConnection connection = url.openConnection();
                     connection.connect();
 
-                    long lengthOfFile = connection.getContentLength();
+                    long fileLength = connection.getContentLength();
                     InputStream input = new BufferedInputStream(url.openStream(), 1024 * 1000);
                     OutputStream output = new FileOutputStream(localPath);
 
@@ -465,7 +481,7 @@ public class MainActivity extends ActivityBase
 
                     while ((count = input.read(data)) != -1) {
                         total += count;
-                        pos = (int) ((total * 100) / lengthOfFile);
+                        pos = (int) ((total * 100) / fileLength);
                         publishProgress("" + pos );
                         output.write(data, 0, count);
                     }
@@ -479,7 +495,7 @@ public class MainActivity extends ActivityBase
                     input = null;
 
                 } catch(Exception e) {
-                    Log.i(Common.TAG, getString(R.string.msg_file_download_fail) + e.getMessage());
+                    Log.e(LOG_TAG, getString(R.string.msg_file_download_fail) + e.getMessage());
                     e.printStackTrace();
                 }
             }
@@ -491,17 +507,13 @@ public class MainActivity extends ActivityBase
             int pos = Integer.parseInt(progress[0]);
             setProgressPos(pos);
 
-            if (pos == 100) {
-                mDownIndex++;
-            }
-
-            setProgressMessage( getString(R.string.msg_file_download_cnt, mDownIndex+1, mArrDrmFile.size()) );
+            setProgressMessage( getString(R.string.msg_file_download_cnt, mDownCount, mTotDownCount) );
         }
 
         protected void onPostExecute(String file_url) {
             hideProgress();
 
-            showToast(getString(R.string.msg_file_download_complete,  mArrDrmFile.size()));
+            showToast(getString(R.string.msg_file_download_complete,  mTotDownCount));
 
             /*
              * 플레이 리스트 세팅 및 플레이
@@ -563,16 +575,5 @@ public class MainActivity extends ActivityBase
 
                     return false;
                 });
-
-//        if (CPDRMCloseEvent.Handler(this)) {
-//            if (mSettingsView != null) {
-//                mSettingsView.cancelAlarm();
-//
-//                LoginInfo.setAlarm(0, 0, false);
-//                LoginInfo.savePreferences(this);
-//            }
-//
-//            finish();
-//        }
     }
 }
