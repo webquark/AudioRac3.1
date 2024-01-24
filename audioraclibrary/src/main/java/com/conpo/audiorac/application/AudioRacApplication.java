@@ -17,8 +17,8 @@ import android.os.Environment;
 
 public class AudioRacApplication extends Application {
 
-	//public static String CFG_AUDIORAC_SERVER_URL = "http://www.audiorac.kr";
-	public static String CFG_AUDIORAC_SERVER_URL = "http://61.32.69.226:8082";
+	public static String CFG_AUDIORAC_SERVER_URL = "http://www.audiorac.kr";
+	//public static String CFG_AUDIORAC_SERVER_URL = "http://61.32.69.226:8082";
 	//public static String CFG_AUDIORAC_SERVER_URL = "http://192.168.45.25:8084";
 
 	protected static String CFG_AUDIORAC_SITE_PREFIX = "";
