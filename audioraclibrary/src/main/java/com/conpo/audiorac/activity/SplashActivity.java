@@ -3,6 +3,7 @@ package com.conpo.audiorac.activity;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLDecoder;
+import java.util.Objects;
 
 import com.conpo.audiorac.library.R;
 import com.conpo.audiorac.application.AudioRacApplication;
@@ -23,6 +24,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -48,8 +50,6 @@ public class SplashActivity extends ActivityBase {
 		LoginInfo.loadPreferences(this);
 
 		checkAppVersion();
-		//new RequestVersionInfoTask().execute();
-
 	}
 
 	private void checkAppVersion() {
@@ -61,6 +61,8 @@ public class SplashActivity extends ActivityBase {
 							APIData data = api.getData();
 
 							if (data == null) {
+								mVersionCheckCompleted = true;
+								goLogin();
 								return;
 							}
 
@@ -95,18 +97,21 @@ public class SplashActivity extends ActivityBase {
 								isNewVersionExist = true;
 							}
 
-							// 새 버전이 있으면 자동로그인 하지 말것
+							// 새 버전이 있으면 자동 로그인 하지 말것
 							if (!isNewVersionExist) {
 								mVersionCheckCompleted = true;
 								goLogin();
 							}
 
+						} else {
+							mVersionCheckCompleted = true;
+							goLogin();
 						}
 					}
 
 					@Override
 					public void onFailure(Call<APIResponse> call, Throwable t) {
-						Log.d(LOG_TAG,"onFailure : " + t.getMessage());
+						Log.e(LOG_TAG,"onFailure : " + t.getMessage());
 						goLogin();
 					}
 				});
@@ -116,7 +121,7 @@ public class SplashActivity extends ActivityBase {
 		handler.sendEmptyMessageDelayed(0, 10);
 	}
 
-	Handler handler = new Handler() {
+	Handler handler = new Handler(Looper.getMainLooper()) {
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
@@ -124,7 +129,7 @@ public class SplashActivity extends ActivityBase {
 			Uri uri = getIntent().getData();
 			Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
 
-			if (uri != null && uri.getScheme().indexOf("contentsportal") >= 0) {
+			if (uri != null && uri.getScheme().contains("contentsportal")) {
 				/*
 				 * Scheme URL 파라미터
 				 * - audiorac 모바일 웹사이트에서 파일 다운로드를 선택하여 앱이 실행된 경우: 구버전 호환)
@@ -147,7 +152,7 @@ public class SplashActivity extends ActivityBase {
 
 				intent.putExtra(Common.MSG_LOGININFO_DNFILE, fileUrl);
 
-			} else if (uri != null && uri.getScheme().indexOf("audiorac") >= 0) {
+			} else if (uri != null && uri.getScheme().contains("audiorac")) {
 				/*
 				 * Scheme URL 파라미터
 				 * - 외부 사잍,에서 audiorac 모바일 앱이 실행된 경우)
