@@ -53,9 +53,9 @@ public class RetrofitClient {
 
 
 
-    public static void requestUserLogin(String url, String userId, String userPwd, String appVer,
+    public static void requestUserLogin(String url, String useName, String userId, String userPwd,  String appVer,
                                         Callback<APIResponse> callback) {
-        getRetrofitService(url).requestUserLogin(userId, userPwd, appVer).enqueue(callback);
+        getRetrofitService(url).requestUserLogin(useName, userId, userPwd, appVer).enqueue(callback);
     }
 
     public static void saveStreamLog(String url, String userId, String volumeId,

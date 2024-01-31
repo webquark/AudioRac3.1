@@ -51,6 +51,7 @@ public class LoginActivity extends ActivityBase
 	private String mSiteURL = "";
 	private String mSiteName = "";
 	private String mAppType = "";
+	private String mUseName = "N";
 	
 	// UI references.
 	private EditText mEtKeyword;
@@ -283,23 +284,24 @@ public class LoginActivity extends ActivityBase
 		if (rec != null) {
 			// 아이디에 표출되는 문구(id_type) : [I:아이디, E:사번(학번), 기본값:I]
 			// 패스워드에 표출되는 문구(use_name) : [N:비밀번호, Y:성명, I:아이디, S:학번(사번), 기본값:N]
+			mUseName = rec.safeGet("use_name");
 
-			if (rec.safeGet("use_name").equals("Y")) {
+			if (mUseName.equals("Y")) {
 				mEtPassword.setHint(R.string.prompt_password);	// 성명
 				mEtPassword.setInputType(InputType.TYPE_CLASS_TEXT);
 				mEtPassword.setSelection(mEtPassword.getText().length());
 
-			} else if (rec.safeGet("use_name").equals("I")) {
+			} else if (mUseName.equals("I")) {
 				mEtPassword.setHint(R.string.prompt_password1);	// 아이디
 				mEtPassword.setInputType(InputType.TYPE_CLASS_TEXT);
 				mEtPassword.setSelection(mEtPassword.getText().length());
 
-			} else if (rec.safeGet("use_name").equals("S")) {
+			} else if (mUseName.equals("S")) {
 				mEtPassword.setHint(R.string.prompt_password2);	// 학번(사번)
 				mEtPassword.setInputType(InputType.TYPE_CLASS_TEXT);
 				mEtPassword.setSelection(mEtPassword.getText().length());
 
-			} else {
+			} else { // "N"
 				mEtPassword.setHint(R.string.prompt_password3);	// 비밀번호
 				mEtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 				mEtPassword.setSelection(mEtPassword.getText().length());
@@ -313,7 +315,8 @@ public class LoginActivity extends ActivityBase
 	
 	@Override
 	public void onBackPressed() {
-		if(CPDRMCloseEvent.Handler(this)) {
+
+		if (CPDRMCloseEvent.Handler(this)) {
 			finishAndRemoveTask();
 		}
 	}
@@ -380,6 +383,7 @@ public class LoginActivity extends ActivityBase
 			mSiteURL = rec.safeGet("url");
 			mSiteName = rec.safeGet("name");
 			mAppType = rec.safeGet("app_type");
+			mUseName = rec.safeGet("use_name");
 
 			Confirm(R.string.msg_login_confirm_organ,
 					new DialogInterface.OnClickListener() {
@@ -394,6 +398,7 @@ public class LoginActivity extends ActivityBase
 							 * 로그인 처리
 							 */
 							findViewById(R.id.progress).setVisibility(View.VISIBLE);
+							findViewById(R.id.btn_login).setClickable(false);
 							//new UserLoginTask().execute(mSiteURL, email, password);
 							requestUserLogin(email, password);
 						}
@@ -407,27 +412,35 @@ public class LoginActivity extends ActivityBase
 	 * @param password 비밀번호, 성명, 학번..
 	 */
 	private void requestUserLogin(final String email, final String password) {
-		RetrofitClient.requestUserLogin(mSiteURL, email, password, Utils.getAppVersion(mContext),
+		RetrofitClient.requestUserLogin(mSiteURL, mUseName, email, password, Utils.getAppVersion(mContext),
 				new Callback<APIResponse>() {
 					@Override
 					public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
 						if (response.isSuccessful()) {
 							APIResponse api = response.body();
 
-							APIData data = api.getData();
+							if (api.success()) {
+								/*
+								 * 로그인 성공 - 정보 저장
+								 */
+								saveLoginInfo(mSiteName, mSiteURL, mAppType, email, password);
 
-							/*
-							 * 로그인 성공 - 정보 저장
-							 */
-							saveLoginInfo(mSiteName, mSiteURL, mAppType, email, password);
+								/*
+								 * 메인 창 띄우기
+								 */
+								launchMainActivity();
+								finish();
 
-							/*
-							 * 메인 창 띄우기
-							 */
-							launchMainActivity();
+							} else {
+								/*
+								 * 로그인 실패
+								 */
+								mEtPassword.requestFocus();
+								findViewById(R.id.progress).setVisibility(View.GONE);
+								findViewById(R.id.btn_login).setClickable(true);
 
-							finish();
-
+								Alert(api.getMessage());
+							}
 
 						} else {
 							/*
@@ -435,6 +448,7 @@ public class LoginActivity extends ActivityBase
 							 */
 							mEtPassword.requestFocus();
 							findViewById(R.id.progress).setVisibility(View.GONE);
+							findViewById(R.id.btn_login).setClickable(true);
 
 							Alert(response.message());
 						}
@@ -443,6 +457,10 @@ public class LoginActivity extends ActivityBase
 					@Override
 					public void onFailure(Call<APIResponse> call, Throwable t) {
 						Log.d(LOG_TAG,"onFailure : " + t.getMessage());
+
+						mEtPassword.requestFocus();
+						findViewById(R.id.progress).setVisibility(View.GONE);
+						findViewById(R.id.btn_login).setClickable(true);
 					}
 				});
 	}
