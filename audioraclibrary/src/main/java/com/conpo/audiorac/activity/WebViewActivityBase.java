@@ -81,7 +81,7 @@ public class WebViewActivityBase extends ActivityBase
 
 		mBtnGotoTop = (Button)findViewById(R.id.btn_gototop);
 		mBtnGotoTop.setOnClickListener(this);
-		
+
 		
 		mWebView = (ObservableWebView) findViewById(R.id.webview);
 		
@@ -138,13 +138,13 @@ public class WebViewActivityBase extends ActivityBase
 	@Override
 	public void onScroll(int left, int top) {
 		// scroll height가 50dp를 넘으면 [TOP] 버튼 표시
-		int topBarHeight = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
+//		int topBarHeight = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
 
-		if (top > topBarHeight) {
-			mBtnGotoTop.setVisibility(View.VISIBLE);
-		} else {
-			mBtnGotoTop.setVisibility(View.GONE);
-		}
+//		if (top > topBarHeight) {
+//			mBtnGotoTop.setVisibility(View.VISIBLE);
+//		} else {
+//			mBtnGotoTop.setVisibility(View.GONE);
+//		}
 
 
 //		int height = (int) Math.floor(mWebView.getContentHeight() * mWebView.getScale());

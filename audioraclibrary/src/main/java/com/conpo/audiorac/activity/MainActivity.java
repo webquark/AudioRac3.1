@@ -211,7 +211,6 @@ public class MainActivity extends ActivityBase
     /**
      * 네비게이션 호스트 프래그먼트에 표시될 뷰 프래그먼트를 설정
      * @param fragment 뷰 프래그먼트
-     * @param tag 뷰 구분 태그
      * @param position 탭 위치
      */
     public void setFragment(FragmentBase fragment, int position) {
