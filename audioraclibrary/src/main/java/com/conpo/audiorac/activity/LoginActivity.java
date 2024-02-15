@@ -320,7 +320,7 @@ public class LoginActivity extends ActivityBase
 			finishAndRemoveTask();
 		}
 	}
-	
+
 	/**
 	 * 로그인 입력 정보 체크
 	 */
