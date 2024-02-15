@@ -40,7 +40,8 @@ public interface RetrofitService {
      * @return
      */
     @GET("/api/mobile/userLogin.php")
-    Call<APIResponse> requestUserLogin(@Query("usid") String userId,
+    Call<APIResponse> requestUserLogin(@Query("use_name") String useName,
+                                       @Query("usid") String userId,
                                        @Query("usname") String userPwd,
                                        @Query("appVer") String appVer);
 
