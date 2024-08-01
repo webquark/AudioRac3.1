@@ -98,6 +98,11 @@ public class MainActivity extends ActivityBase
             return setNavigationItem(id);
         });
 
+
+        String csCode = getIntent().getStringExtra("com.conpo.audiorac.login.cs_code");
+        String chCode = getIntent().getStringExtra("com.conpo.audiorac.login.ch_code");
+        mHomeView.setCourse(csCode, chCode);
+
         final FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, mDownListView, "2").commit();
         fm.beginTransaction().add(R.id.nav_host_fragment_activity_main, mMyAudioView, "3").commit();

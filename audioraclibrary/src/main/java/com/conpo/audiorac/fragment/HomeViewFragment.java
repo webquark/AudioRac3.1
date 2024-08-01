@@ -1,5 +1,7 @@
 package com.conpo.audiorac.fragment;
 
+import static android.content.Intent.getIntent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,7 +65,9 @@ public class HomeViewFragment extends WebViewFragmentBase {
                 mUrl = mUrl.replace("{usrId}", LoginInfo.getUserId());
                 mUrl = mUrl.replace("{usrName}", LoginInfo.getUserPwd());   //URLEncoder.encode(LoginInfo.getUserPwd(), "EUC-KR"));
                 mUrl = mUrl.replace("{mode}", (LoginInfo.getUIMode() == AppCompatDelegate.MODE_NIGHT_NO) ? "Light" : "Dark");
-                mUrl = mUrl.replace("{dest}", "Main");
+                mUrl = mUrl.replace("{dest}", "Course");
+                mUrl = mUrl.replace("{csCode}", mCsCode);
+                mUrl = mUrl.replace("{chCode}", mChCode);
                 mUrl = mUrl.replace("{appVer}", Utils.getAppVersion(mContext));
 
                 mUrl = HttpUtil.verifyUrl(mUrl);
@@ -102,7 +106,7 @@ public class HomeViewFragment extends WebViewFragmentBase {
      */
     public boolean checkHomeUrl() {
         if (mUrl != null) {
-            if (mUrl.indexOf("mobileDownload.php") >= 0 || mUrl.indexOf("login_proc_app.php") >= 0) {
+            if (mUrl.contains("mobileDownload.php") || mUrl.contains("login_proc_app.php")) {
                 // 이전에 다운로드를 했으면 빈화면에 멈춰있을 것이므로 홈으로 이동
                 gotoHome();
 
@@ -122,6 +126,11 @@ public class HomeViewFragment extends WebViewFragmentBase {
             // gotoHome()을 통해 홈으로 이동한 경우
             hideBackButton();
         }
+    }
+
+    public void setCourse(String csCode, String chCode) {
+        mCsCode = csCode;
+        mChCode = chCode;
     }
 
     public void gotoCourse(String csCode) {
